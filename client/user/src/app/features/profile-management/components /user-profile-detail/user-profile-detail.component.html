@@ -1,0 +1,182 @@
+<style>
+  @layer utilities {
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+</style>
+<div class="flex ml-12 mt-4 p-8">
+  <div class="flex">
+    <div class="space-y-12 w-full">
+      <div class="w-full">
+        <h2 class="font-poppins_semi_bold pt-6 text-2xl text-blue-500">
+          Profile Information
+          <button
+            [matTooltip]="'Profile edit '"
+            matTooltipPosition="after"
+            class="ml-2 text-gray-500 hover:text-blue-600"
+            (click)="editHandle()"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-edit"
+            >
+              <path
+                d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+              ></path>
+              <path
+                d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+              ></path>
+            </svg>
+          </button>
+        </h2>
+        <p class="text-sm leading-6 text-gray-500">Add and Edit yor profile.</p>
+        <form [formGroup]="vendorDetailForm">
+          <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div class="sm:col-span-5">
+              <label
+                for="store-name"
+                class="block text-sm font-medium leading-6 text-gray-900"
+                >User name</label
+              >
+              <div class="mt-2">
+                <input
+                  [attr.disabled]="iseditable ? true : null"
+                  maxlength="20"
+                  formControlName="username"
+                  type="text"
+                  name="store-name"
+                  id="store-name"
+                  autocomplete="given-name"
+                  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+                />
+                <ng-container
+                  *ngIf="
+                    vendorDetailForm.get('username')?.dirty ||
+                    vendorDetailForm.get('username')?.touched ||
+                    formSubmitted
+                  "
+                >
+                  <span
+                    class="text-red-500 text text-sm"
+                    *ngIf="vendorDetailForm.get('username')?.errors?.['required']"
+                  >
+                    Please provide your name.
+                  </span>
+
+                  <span
+                    class="text-red-500 text text-sm flex items-center justify-between"
+                    *ngIf="vendorDetailForm.get('username')?.errors?.['pattern']"
+                  >
+                  Invalid user name.
+
+                    <mat-icon
+                      class="error-icon text-xs pt-1"
+                      [matTooltip]="
+                        'Name must be between 3 and 20 characters and cannot contain special characters or whitespace'
+                      "
+                    >
+                      info
+                    </mat-icon>
+                  </span>
+                </ng-container>
+              </div>
+            </div>
+
+            <div class="sm:col-span-5">
+              <label class="block text-sm font-medium leading-6 text-gray-900"
+                >Mobile</label
+              >
+              <div class="mt-2">
+                <input
+                  [attr.disabled]="iseditable ? true : null"
+                  maxlength="15"
+                  formControlName="phone"
+                  type="text"
+                  name="mobile"
+                  id="mobile"
+                  autocomplete="family-name"
+                  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+                />
+                <ng-container
+                  *ngIf="
+                    vendorDetailForm.get('phone')?.dirty ||
+                    vendorDetailForm.get('phone')?.touched ||
+                    formSubmitted
+                  "
+                >
+                  <span
+                    class="text-red-500 text text-sm"
+                    *ngIf="vendorDetailForm.get('phone')?.errors?.['required']"
+                  >
+                    Mobile number field cannot be left blank.
+                  </span>
+                  <span
+                    class="text-red-500 text text-sm"
+                    *ngIf="vendorDetailForm.get('phone')?.errors?.['maxlength']"
+                  >
+                    Please enter valid mobile number.
+                  </span>
+                  <span class="text-red-500 text-sm">
+                    {{vendorDetailForm.get('phone')?.errors?.['pattern'] ? 'Invalid phone number format.' : 
+                  vendorDetailForm.get('phone')?.errors?.['minlength'] ? 'Mobile number must be at least 10 digits long.' : ''
+                    }}
+                  </span>
+                </ng-container>
+              </div>
+            </div>
+            <div class="sm:col-span-5">
+              <label class="block text-sm font-medium leading-6 text-gray-900"
+                >Email</label
+              >
+              <div class="mt-2" [matTooltip]="vendorDetailForm.get('email')?.value" [matTooltipPosition]="'right'">
+                <input 
+                  maxlength="15"
+                  formControlName="email"
+                  type="text"
+                  name="mobile"
+                  id="mobile"
+                  autocomplete="family-name"
+                  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+                />
+              </div>
+              <div
+                (click)="onProfileDetailsSubmit()"
+                *ngIf="!iseditable"
+                class="flex items-center justify-end"
+              >
+                <button
+                  [disabled]="buttonDisabler"
+                  type="submit"
+                  class="w-full rounded-md bg-blue-500 px-16 mt-6 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
+                >
+                  Save
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="md:block hidden sm:block">
+    <img
+      class="pt-3 ml-12 flex justify-evenly"
+      width="425"
+      height="425"
+      src="/assets/profile-lock.gif"
+      alt=""
+    />
+  </div>
+</div>

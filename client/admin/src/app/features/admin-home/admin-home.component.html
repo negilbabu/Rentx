@@ -1,0 +1,10 @@
+<div class="bg-gray-900">
+  <app-sidebar></app-sidebar>
+  <main
+    [class.lg:pl-72]="paddingValue === 72"
+    [class.lg:pl-44]="paddingValue === 44"
+    class="px-4"
+  >
+    <router-outlet></router-outlet>
+  </main>
+</div>

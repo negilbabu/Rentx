@@ -1,0 +1,28 @@
+.navigation-wrapper {
+  position: relative;
+}
+
+.arrow {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  /* fill: rgba(59, 130, 246, 0.7); */
+  stroke: rgba(59, 130, 246, 0.7);
+  cursor: pointer;
+}
+
+.arrow--left {
+  left: 5px;
+}
+
+.arrow--right {
+  left: auto;
+  right: 5px;
+}
+
+.thumbnail .keen-slider__slide.active {
+  border: 2px solid rgba(59, 130, 246, 0.7);
+}

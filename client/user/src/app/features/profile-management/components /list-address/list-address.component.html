@@ -1,0 +1,47 @@
+
+
+  <div class="px-20  py-14 min-h-screen min-w-full bg-white shadow">
+    <label class=" font-poppins_semi_bold text-2xl  text-blue-500">Your Address </label> 
+    <button  [disabled]="addressData.length>=5" routerLink="/profile/addAddress" 
+    [matTooltip]="
+    'Add new address'
+  "
+    class="text-lg font-poppins_semi_bold text-blue-500 disabled:text-gray-400 align-sub "> 
+  
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-square"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+  
+  </button> 
+    <p class=" text-sm leading-6 text-gray-500">
+    View your added addresses.
+    </p>
+    <div *ngFor="let address of addressData" class="mt-4 p-8 bg-gray-50 border-2 border-gray-50 rounded-lg shadow-lg">
+      <div class=" flex items-center justify-between">
+        <div>
+          <h2 class="text-lg font-poppins_semi_bold">{{address.name | titlecase}}</h2>
+          <p  *ngIf="address.type==0" class="text-sm text-gray-400" >Home</p>
+          <p *ngIf="address.type==1"  class="text-xs text-gray-400" >Office</p>
+          <p *ngIf="address.type==2"  class="text-xs text-gray-400" >Others</p>
+        </div>
+
+        <button  [matMenuTriggerFor]="menu">
+          <svg class="w-6 h-6 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12 4c1.103 0 2 .897 2 2s-.897 2-2 2-2-.897-2-2 .897-2 2-2zm0 2c.552 0 1 .448 1 1s-.448 1-1 1-1-.448-1-1 .448-1 1-1zM12 10c1.103 0 2 .897 2 2s-.897 2-2 2-2-.897-2-2 .897-2 2-2zm0 2c.552 0 1 .448 1 1s-.448 1-1 1-1-.448-1-1 .448-1 1-1zM12 16c1.103 0 2 .897 2 2s-.897 2-2 2-2-.897-2-2 .897-2 2-2zm0 2c.552 0 1 .448 1 1s-.448 1-1 1-1-.448-1-1 .448-1 1-1z"
+            />
+          </svg>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item   [routerLink]="['/editAddress', address.id]">Edit</button>
+          <button mat-menu-item (click)="requestHandle(address)" >Delete</button>
+        </mat-menu>
+        
+     
+
+      </div>
+      <div class="py-2">
+        <p class="text-sm text-gray-600">+91-{{address.phone}}</p>
+        <p class="text-sm text-gray-600">{{address.houseName | titlecase}}, {{address.city}}, Pin-Code : {{address.pinCode}}, {{address.state}}</p>
+      </div>
+    </div>
+  </div>
+  

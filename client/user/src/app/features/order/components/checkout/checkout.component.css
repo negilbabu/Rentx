@@ -1,0 +1,6 @@
+.disable-expansion {
+    cursor: default !important;
+    pointer-events: none;
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }

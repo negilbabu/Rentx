@@ -1,0 +1,60 @@
+
+.date-range-input {
+  width: 200px;
+}
+
+/* Customise flatpickr */
+* {
+  --calendarPadding: 24px;
+  --daySize: 36px;
+  --daysWidth: calc(var(--daySize) * 7);
+}
+
+@keyframes fpFadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -8px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+::ng-deep .mat-form-field-ripple {
+  background-color: gray !important;
+}
+
+::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: gray !important;
+}
+mat-label {
+  color: rgb(255, 5, 5) !important;
+}
+
+::ng-deep .mat-select-arrow {
+  color: rgb(255, 255, 255);
+}
+::ng-deep .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: gray;
+}
+:host ::ng-deep .mat-form-field-flex {
+  background-color: transparent !important;
+}
+
+:host ::ng-deep .mat-button,
+:host ::ng-deep .mat-icon-button,
+:host ::ng-deep .mat-stroked-button {
+  color: gray;
+  background-color: transparent;
+}
+:host ::ng-deep .mat-calendar-body-cell-content,
+:host ::ng-deep .mat-focus-indicator,
+:host ::ng-deep .mat-calendar-body-selected {
+  color: gray;
+  background-color: transparent;
+}
+ :host ::ng-deep .mat-calendar-body-cell-content {
+          border-radius: 0;
+        }
+

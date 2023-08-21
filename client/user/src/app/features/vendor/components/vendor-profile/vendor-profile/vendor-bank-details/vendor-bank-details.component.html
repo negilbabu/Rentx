@@ -1,0 +1,236 @@
+<div class="flex ml-12 mt-4 p-8">
+  <div class="flex">
+      <div class="space-y-12 w-full">
+        <div class="pb-12">
+          <h2 class="font-poppins_semi_bold pt-6 text-2xl">
+            Bank Detail
+            <button [matTooltip]="'Edit bank detail '" matTooltipPosition="after"
+              class="ml-2 text-gray-500 "
+              (click)="editHandle()"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-edit"
+              >
+                <path
+                  d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                ></path>
+                <path
+                  d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                ></path>
+              </svg>
+            </button>
+          </h2>
+          <p class="text-sm leading-6 text-gray-500">Add and Edit yor bank detail.</p>
+  
+    <form   [formGroup]="vendorBankDetailForm">
+          <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div class="sm:col-span-2">
+              <label
+                for="holderName"
+                class="block text-sm font-medium leading-6 text-gray-900"
+                >Account Holder Name</label
+              >
+              <div class="mt-2">
+                <input [attr.disabled]="iseditable ? true : null" maxlength="50"
+                  formControlName="holderName"
+                  type="text"
+                  name="holderName"
+                  id="holderName"
+                  class="block w-full px-4 py-1.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                />
+                <ng-container
+                  *ngIf="
+                    vendorBankDetailForm.get('holderName')?.dirty ||
+                    vendorBankDetailForm.get('holderName')?.touched ||formSubmitted
+                  "
+                >
+                  <span
+                    class="text-red-500 text text-sm"
+                    *ngIf="vendorBankDetailForm.get('holderName')?.errors?.['required']"
+                  >
+                    Please fill in the account holder name field.
+                  </span>
+                  <span
+                    class="text-red-500 text text-sm"
+                    *ngIf="vendorBankDetailForm.get('holderName')?.errors?.['maxlength']"
+                    >Account holder name must be 50 characters or less.
+                  </span>
+                  <span class="text-red-500 text-sm">
+                    {{vendorBankDetailForm.get('holderName')?.errors?.['pattern'] ? 'Account holder name should consist of letters only.' : 
+                    vendorBankDetailForm.get('holderName')?.errors?.['minlength'] ? 'Account holder name should contain at least 3 characters.' : ''
+                    }}
+                  </span>
+                </ng-container>
+              </div>
+            </div>
+  
+            <div class="sm:col-span-2">
+              <label
+                for="accountNumber"
+                class="block text-sm font-medium leading-6 text-gray-900"
+                >Account Number</label
+              >
+              <div class="mt-2">
+                <input [attr.disabled]="iseditable ? true : null"maxlength="18"
+                  formControlName="accountNumber"
+                  type="text"
+                  name="accountNumber"
+                  id="accountNumber"
+                  class="block w-full px-4 py-1.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                />
+                <ng-container
+                  *ngIf="
+                    vendorBankDetailForm.get('accountNumber')?.dirty ||
+                    vendorBankDetailForm.get('accountNumber')?.touched||formSubmitted
+                  "
+                >
+                  <span
+                    class="text-red-500 text text-sm"
+                    *ngIf="vendorBankDetailForm.get('accountNumber')?.errors?.['required']"
+                  >
+                    Please fill in the account number field.
+                  </span>
+                  <span
+                    class="text-red-500 text text-sm"
+                    *ngIf="vendorBankDetailForm.get('accountNumber')?.errors?.['maxlength']"
+                    >Account number name must be 18 digits or less.
+                  </span>
+                  <span class="text-red-500 text-sm">
+                    {{vendorBankDetailForm.get('accountNumber')?.errors?.['pattern'] ? 'Account number should consist of digits only.' : 
+                  vendorBankDetailForm.get('accountNumber')?.errors?.['minlength'] ? 'Account number should contain at least 8 digits.' : ''
+                    }}
+                  </span>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+          <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div class="sm:col-span-2">
+              <label
+                for="ifsc"
+                class="block text-sm font-medium leading-6 text-gray-900"
+                >IFSC Code</label
+              >
+              <div class="mt-2">
+                <input [attr.disabled]="iseditable ? true : null"maxlength="11"
+                  formControlName="ifsc"
+                  id="ifsc"
+                  name="ifsc"
+                  class="block w-full px-4 py-1.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                />
+                <ng-container
+                  *ngIf="
+                    vendorBankDetailForm.get('ifsc')?.dirty ||
+                    vendorBankDetailForm.get('ifsc')?.touched||formSubmitted
+                  "
+                >
+                  <span
+                    class="text-red-500 text text-sm"
+                    *ngIf="vendorBankDetailForm.get('ifsc')?.errors?.['required']"
+                  >
+                    Please fill in the IFSC code field.
+                  </span>
+                  <span
+                    class="text-red-500 text text-sm"
+                    *ngIf="vendorBankDetailForm.get('ifsc')?.errors?.['pattern']"
+                    >Invalid IFSC code format.
+                  </span>
+                </ng-container>
+              </div>
+            </div>
+  
+            <div class="sm:col-span-2">
+              <label
+                for="pan"
+                class="block text-sm font-medium leading-6 text-gray-900"
+                >PAN Number</label
+              >
+              <div class="mt-2">
+                <input [attr.disabled]="iseditable ? true : null"maxlength="10"
+                  formControlName="pan"
+                  id="pan"
+                  name="pan"
+                  type="text"
+                  class="block w-full px-4 py-1.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                />
+                <ng-container
+                  *ngIf="
+                    vendorBankDetailForm.get('pan')?.dirty ||
+                    vendorBankDetailForm.get('pan')?.touched||formSubmitted
+                  "
+                >
+                  <span
+                    class="text-red-500 text text-sm"
+                    *ngIf="vendorBankDetailForm.get('pan')?.errors?.['required']"
+                  >
+                    Please fill in the PAN field.
+                  </span>
+                  <span
+                    class="text-red-500 text text-sm"
+                    *ngIf="vendorBankDetailForm.get('pan')?.errors?.['pattern']"
+                    >Invalid PAN format.
+                  </span>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+          <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div class="sm:col-span-2">
+              <label
+                for="gst"
+                class="block text-sm font-medium leading-6 text-gray-900"
+                >GST Number</label
+              >
+              <div class="mt-2">
+                <input [attr.disabled]="iseditable ? true : null"maxlength="15"
+                  formControlName="gst"
+                  type="text"
+                  name="gst"
+                  id="gst"
+                  class="block w-full px-4 py-1.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                />
+                <ng-container
+                  *ngIf="
+                    vendorBankDetailForm.get('gst')?.dirty ||
+                    vendorBankDetailForm.get('gst')?.touched||formSubmitted
+                  "
+                >
+                  <span
+                    class="text-red-500 text text-sm"
+                    *ngIf="vendorBankDetailForm.get('gst')?.errors?.['required']"
+                  >
+                    Please fill in the GST number field.
+                  </span>
+                  <span
+                    class="text-red-500 text text-sm"
+                    *ngIf="vendorBankDetailForm.get('gst')?.errors?.['pattern']"
+                    >Invalid GST number format.
+                  </span>
+                </ng-container>
+              </div>
+              <div class="mt-6  flex items-center justify-start">
+                <button
+                 type="submit" 
+                *ngIf="!iseditable"
+                [disabled]="buttonDisabler"
+                (click)="onSubmitBankDetails()"
+                  class="w-full rounded-md bg-blue-500 px-16 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
+                >
+                  Save
+                </button>
+              </div> </div>
+          </div>
+            </form>
+        </div>
+      </div>
+  </div>
+  </div>

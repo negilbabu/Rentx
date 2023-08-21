@@ -1,0 +1,103 @@
+<div class="flex flex-col h-screen ">
+
+    <div
+      *ngIf="currentCount == 0"
+      class=" pt-28 flex-grow flex flex-col items-center h-screen justify-start"
+    >
+      <img
+        class="object-contain w-52 h-52 mb-1"
+        alt=""
+        src="/assets/addtowishlist.gif"
+      />
+      <span class="font-poppins_semi_bold text-lg mb-2">Your Wishlist is Empty!</span>
+      <span class="font-poppins text-center mb-4"
+        >Looks like you have not added anything to your wishlist. Go ahead and explore
+        our top categories.</span
+      >
+      <button
+        (click)="goToProducts()"
+        class="w-auto flex items-center justify-center rounded-md border border-transparent bg-blue-500 px-4 py-3 text-base font-medium text-white hover:bg-blue-400 focus:outline-none focus:ring-2 focus:blue-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:max-w-md"
+      >
+        Shop our products
+      </button>
+    </div>
+ 
+    <div *ngIf="currentCount != 0" class="h-screen w-full mt-8 pt-8 mb-4">
+
+      <div
+        class="mx-auto max-w-6xl  justify-center   md:flex md:space-x-6 xl:px-0"
+      >    
+        <div   
+        class="rounded-lg mx-8  w-full">
+        <div class="mb-6">
+          <label class=" font-poppins_semi_bold text-2xl text-blue-500">Your Wishlist </label> <span class=" font-poppins_semi_bold text-sm align-middle  text-blue-500">({{ currentCount }})</span> 
+          </div>
+          <div
+            *ngFor="let product of cartData; let i = index "
+            class="justify-center mb-6 rounded-lg bg-white p-6 border shadow-lg sm:flex sm:justify-start relative md:flex"
+          >
+            <div class="absolute top-2 right-2 sm:top-4 p-4 sm:right-4" >
+              <svg
+                (click)="requestHandle(product)"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                [matTooltip]="'Remove Product'"
+                class="h-5 w-5 cursor-pointer duration-150 hover:text-red-500"
+              >
+              <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </div>
+            <div (click)="goToDetails(product)" [routerLink]="" class="flex  justify-center sm:justify-end">
+          
+              <img 
+                src="{{ product.thumbnail }}"
+                alt="product-image"
+                class="md:w-100 w-40 h-40 object-contain rounded-lg sm:w-48 sm:h-28 sm:items-center"
+              />
+        
+            </div>
+            <div (click)="goToDetails(product)" class="sm:ml-4 sm:flex sm:w-full sm:justify-between mb-6">
+              <div class="mt-5 sm:mt-0">
+                <h2 class="text-lg font-bold text-gray-900 sm:text-xl">
+                  {{ product.productName | titlecase }}
+                </h2>
+                <p class="mt-3 text-sm text-gray-700">
+                  {{ product.categoryName | titlecase}}
+                </p>
+  
+                <div class=" pr-2 w-full  pt-4 justify-evenly   items-center">
+                  
+                  <p
+                  *ngIf="product.isAvailable"
+                  class="justify-evenly items-center text-xs text-green-500"
+                >
+                Product available for today!
+                </p>
+                <p
+                  *ngIf="!product.isAvailable"
+                  class="justify-evenly items-center text-xs text-red-500"
+                >Product unavailable today!
+                </p>
+                </div>
+                
+              
+              </div>
+            </div>
+            <div (click)="goToDetails(product)" class="mt-12 flex justify-between items-center">
+              <span>
+              <p class="text-lg text-blue-500 font-bold">₹{{ product.price | number }}&nbsp;Rs</p>
+            </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

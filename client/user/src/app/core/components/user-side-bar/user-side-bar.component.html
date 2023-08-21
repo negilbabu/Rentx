@@ -1,0 +1,486 @@
+<div>
+  <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
+  <div fixed #sidebar class="relative z-50 lg:hidden hidden" role="dialog" aria-modal="true">
+    <div class="fixed inset-0 bg-gray-900/80"></div>
+
+    <div class="fixed inset-0 flex">
+      <div class="relative mr-16 flex w-full max-w-xs flex-1">
+        <div class="absolute left-full top-0 flex w-16 justify-center pt-5">
+          <button type="button" (click)="toggleSidebar()" class="-m-2.5 p-2.5">
+            <span class="sr-only">Close sidebar</span>
+            <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+              aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Sidebar component, swap this element with another sidebar if you like -->
+        <div class="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6">
+          <div class="flex h-16 shrink-0 items-center">
+            <img class="h-4 w-auto" src="/assets/logo-blue.png" alt="Your Company" />
+          </div>
+          <nav class="flex flex-1 flex-col">
+            <ul role="list" class="flex flex-1 flex-col gap-y-7">
+              <li>
+                <ul role="list" class="-mx-2 space-y-1">
+                  <li>
+                    <!-- Current: "bg-gray-50 text-blue-500", Default: "text-gray-700 hover:text-blue-500 hover:bg-gray-50" -->
+                    <a routerLinkActive="active-link" routerLink="/"
+                      class="text-gray-400 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+                      <svg class="h-6 w-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                      </svg>
+                      Home
+                    </a>
+                  </li>
+
+                  <li>
+                    <a routerLinkActive="active-link" routerLink="profileDetail"
+                      class="text-gray-400 hover:text-blue-500 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+                      <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                        aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                      </svg>
+
+                      Profile
+                    </a>
+                  </li>
+
+                  <li>
+                    <a routerLinkActive="active-link" routerLink="/profile/listAddress"
+                      class="text-gray-400 active:text-blue-400 hover:text-blue-500 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+                      <svg id="Layer_1" class="h-5 w-5 shrink-0 group-hover:text-blue-500" fill="currentColor"
+                        viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" aria-hidden="true"
+                        data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 107.86 122.88">
+                        <defs>
+                          <style>
+                            .cls-1 {
+                              fill-rule: evenodd;
+                            }
+                          </style>
+                        </defs>
+                        <title>gps</title>
+                        <path class="cls-1"
+                          d="M86.07,81.78c13.22,4.16,21.79,10.81,21.79,18.31,0,12.59-24.14,22.79-53.93,22.79S0,112.68,0,100.09c0-7.68,9-14.47,22.73-18.6.5.76,1,1.52,1.51,2.26q1.61,2.34,3.33,4.6c-9.62,2.58-15.79,6.56-15.79,11,0,7.78,18.67,14.09,41.71,14.09s41.7-6.31,41.7-14.09c0-4.16-5.34-7.9-13.84-10.48,1.67-2.29,3.24-4.67,4.72-7.12ZM71.65,84.49A70.47,70.47,0,0,1,56.22,97.26a2.17,2.17,0,0,1-2.48.08A87,87,0,0,1,32.27,78.19C24.45,68.38,19.53,57.5,17.84,47,16.13,36.4,17.73,26.18,23,17.87A35.87,35.87,0,0,1,31,9C38.47,3.08,47-.06,55.47,0A34.42,34.42,0,0,1,78.68,9.48,34.33,34.33,0,0,1,84.88,17c5.68,9.37,6.91,21.31,4.41,33.41a73.54,73.54,0,0,1-17.64,34v0Zm-17.8-65.6A18.25,18.25,0,1,1,35.6,37.14,18.24,18.24,0,0,1,53.85,18.89Z" />
+                      </svg>
+
+                      Address
+                    </a>
+                  </li>
+
+                  <li>
+                    <a routerLinkActive="active-link" routerLink="/profile/orderHistoryList"
+                      class="text-gray-400 hover:text-blue-500 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+                      <svg id="Layer_1" width="20" height="20" fill="currentColor" stroke-width="1.5"
+                        stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 106.53 122.88">
+                        <title>shopping-bag</title>
+                        <path
+                          d="M4.93,30.34H27.41V25.76a25.77,25.77,0,0,1,51.53,0v4.58H101.6a4.91,4.91,0,0,1,3.47,1.45h0a4.9,4.9,0,0,1,1.44,3.48v69.9a17.75,17.75,0,0,1-17.7,17.7H17.7A17.75,17.75,0,0,1,0,105.18V35.28A4.91,4.91,0,0,1,1.45,31.8h0a4.91,4.91,0,0,1,3.47-1.45Zm28.76,0h39V25.76a19.49,19.49,0,0,0-39,0v4.58Zm-6.28,13V36.62H6.28v62h94V36.62H78.94v6.76a6.48,6.48,0,1,1-6.28-.12V36.62h-39v6.71a6.48,6.48,0,1,1-6.28,0Z" />
+                      </svg>
+
+                      Order
+                    </a>
+                  </li>
+
+                  <li>
+                    <a routerLinkActive="active-link" routerLink="/profile/wishlist"
+                      class="text-gray-400 hover:text-blue-500 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-heart">
+                        <path
+                          d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                        </path>
+                      </svg>
+                      Wishlist
+                    </a>
+                  </li>
+
+                  <li>
+                    <a routerLinkActive="active-link" routerLink="/profile"
+                      class="text-gray-400 hover:text-blue-500 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+                      <svg class="svg-icon" width="22" stroke="0.5" height="22"
+                        style="fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M384 426.666667a42.666667 42.666667 0 0 0-42.666667 42.666666v85.333334a42.666667 42.666667 0 0 0 85.333334 0v-85.333334a42.666667 42.666667 0 0 0-42.666667-42.666666z m512 42.666666a42.666667 42.666667 0 0 0 42.666667-42.666666V256a42.666667 42.666667 0 0 0-42.666667-42.666667H128a42.666667 42.666667 0 0 0-42.666667 42.666667v170.666667a42.666667 42.666667 0 0 0 42.666667 42.666666 42.666667 42.666667 0 0 1 0 85.333334 42.666667 42.666667 0 0 0-42.666667 42.666666v170.666667a42.666667 42.666667 0 0 0 42.666667 42.666667h768a42.666667 42.666667 0 0 0 42.666667-42.666667v-170.666667a42.666667 42.666667 0 0 0-42.666667-42.666666 42.666667 42.666667 0 0 1 0-85.333334z m-42.666667-77.653333a128 128 0 0 0 0 240.64V725.333333H426.666667a42.666667 42.666667 0 0 0-85.333334 0H170.666667v-93.013333a128 128 0 0 0 0-240.64V298.666667h170.666666a42.666667 42.666667 0 0 0 85.333334 0h426.666666z" />
+                      </svg>
+
+                      Coupons
+                    </a>
+                  </li>
+                  <li>
+                    <a *ngIf="type==1" routerLinkActive="active-link" routerLink="/profile/changePassword"
+                      class="text-gray-500 hover:text-blue-500 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+                      <svg class="svg-icon" class="h-6 w-6 shrink-0 group-hover:text-blue-500" fill="currentColor"
+                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"
+                        style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024"
+                        version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M288 416v-96a128 128 0 0 1 256 0v96h64v-96c0-106-86-192-192-192s-192 86-192 192v96zM512 704h-64v-64l384-384 64 64-384 384z" />
+                        <path
+                          d="M544 736H416V608l160-160H192a64.19 64.19 0 0 0-64 64v320a64.19 64.19 0 0 0 64 64h448a64.19 64.19 0 0 0 64-64V576z" />
+                      </svg>
+
+                      Add Password
+                    </a>
+                    <a *ngIf="type==0" routerLinkActive="active-link" routerLink="changePassword"
+                      class="text-gray-500 hover:text-blue-500 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+                      <svg class="svg-icon" class="h-6 w-6 shrink-0 group-hover:text-blue-500" fill="currentColor"
+                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"
+                        style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024"
+                        version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M288 416v-96a128 128 0 0 1 256 0v96h64v-96c0-106-86-192-192-192s-192 86-192 192v96zM512 704h-64v-64l384-384 64 64-384 384z" />
+                        <path
+                          d="M544 736H416V608l160-160H192a64.19 64.19 0 0 0-64 64v320a64.19 64.19 0 0 0 64 64h448a64.19 64.19 0 0 0 64-64V576z" />
+                      </svg>
+
+                      Change Password
+                    </a>
+                  </li>
+
+                  <li>
+                    <a routerLinkActive="active-link" routerLink="/vendor/orders"
+                      class="text-gray-400 hover:text-blue-500 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+                      <svg class="h-6 w-6 shrink-0 group-hover:text-blue-500" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+                      </svg>
+                      Reviews and Ratings
+                    </a>
+                  </li>
+
+
+                </ul>
+              </li>
+              <li></li>
+              <li class="-mx-6 mt-auto mb-4 cursor-pointer" (click)="logOut()">
+                <a
+                  class="flex text-gray-400 items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6  hover:text-blue-500 hover:bg-gray-50">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-log-out">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                  </svg>
+
+                  <span aria-hidden="true">Logout</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Static sidebar for desktop -->
+  <div *ngIf="!iconSidebarClicked"
+    class=" p-4 hidden lg:fixed z-90 lg:inset-y-0 lg:z-100 shadow-sm lg lg:flex lg:w-72 lg:flex-col">
+
+    <div class="h-full px-4 space-y-2 w-60">
+      <div routerLink="/" class="flex h-16 shrink-0 items-center">
+        <!-- 
+    <img
+      class="h-4 w-auto"
+      src="/assets/logo-blue.png"
+      alt="Your Company"
+    /> -->
+      </div>
+      <div class="flex items-center space-x-4">
+        <img src="/assets/user.png" alt="" class="w-12 h-12 rounded-full dark:bg-gray-500">
+        <div    [matTooltip]="actualUsername">
+            <h2 class="text-lg text-blue-500 font-semibold" *ngIf="!this.username">Hello, User</h2>
+            <h2 class="text-lg text-blue-500 font-semibold" *ngIf="this.username">Hello, {{username| titlecase}}
+         
+
+            </h2>
+           
+        </div>
+      </div>
+      <div class="divide-y divide-blue-500">
+        <ul class="pt-2 pb-4 space-y-1 text-sm">
+          <li>
+            <a routerLinkActive="active-link" routerLink="profileDetail"
+              class="text-gray-500 hover:text-blue-500 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+              </svg>
+              Profile
+            </a>
+          </li>
+          <li>
+            <a routerLink="/profile/listAddress" routerLinkActive="active-link"
+              class="text-gray-500 active:text-blue-400 hover:text-blue-500 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+
+              <svg id="Layer_1" class="h-5 w-5 shrink-0 group-hover:text-blue-500" fill="currentColor"
+                viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" aria-hidden="true" data-name="Layer 1"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 107.86 122.88">
+                <defs>
+                  <style>
+                    .cls-1 {
+                      fill-rule: evenodd;
+                    }
+                  </style>
+                </defs>
+                <title>gps</title>
+                <path class="cls-1"
+                  d="M86.07,81.78c13.22,4.16,21.79,10.81,21.79,18.31,0,12.59-24.14,22.79-53.93,22.79S0,112.68,0,100.09c0-7.68,9-14.47,22.73-18.6.5.76,1,1.52,1.51,2.26q1.61,2.34,3.33,4.6c-9.62,2.58-15.79,6.56-15.79,11,0,7.78,18.67,14.09,41.71,14.09s41.7-6.31,41.7-14.09c0-4.16-5.34-7.9-13.84-10.48,1.67-2.29,3.24-4.67,4.72-7.12ZM71.65,84.49A70.47,70.47,0,0,1,56.22,97.26a2.17,2.17,0,0,1-2.48.08A87,87,0,0,1,32.27,78.19C24.45,68.38,19.53,57.5,17.84,47,16.13,36.4,17.73,26.18,23,17.87A35.87,35.87,0,0,1,31,9C38.47,3.08,47-.06,55.47,0A34.42,34.42,0,0,1,78.68,9.48,34.33,34.33,0,0,1,84.88,17c5.68,9.37,6.91,21.31,4.41,33.41a73.54,73.54,0,0,1-17.64,34v0Zm-17.8-65.6A18.25,18.25,0,1,1,35.6,37.14,18.24,18.24,0,0,1,53.85,18.89Z" />
+              </svg>
+
+
+              Address
+            </a>
+          </li>
+
+          <li>
+            <a routerLinkActive="active-link" routerLink="/profile/orderHistoryList"
+              class="text-gray-500 hover:text-blue-500 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+              <svg id="Layer_1" width="20" height="20" fill="currentColor" stroke-width="1.5" stroke="currentColor"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 106.53 122.88">
+                <title>shopping-bag</title>
+                <path
+                  d="M4.93,30.34H27.41V25.76a25.77,25.77,0,0,1,51.53,0v4.58H101.6a4.91,4.91,0,0,1,3.47,1.45h0a4.9,4.9,0,0,1,1.44,3.48v69.9a17.75,17.75,0,0,1-17.7,17.7H17.7A17.75,17.75,0,0,1,0,105.18V35.28A4.91,4.91,0,0,1,1.45,31.8h0a4.91,4.91,0,0,1,3.47-1.45Zm28.76,0h39V25.76a19.49,19.49,0,0,0-39,0v4.58Zm-6.28,13V36.62H6.28v62h94V36.62H78.94v6.76a6.48,6.48,0,1,1-6.28-.12V36.62h-39v6.71a6.48,6.48,0,1,1-6.28,0Z" />
+              </svg>
+              Orders
+            </a>
+          </li>
+
+          <li>
+            <a routerLinkActive="active-link" routerLink="/profile/wishlist"
+              class="text-gray-500 hover:text-blue-500 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-heart">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                </path>
+              </svg> Wishlist
+            </a>
+          </li>
+          <li>
+            <a routerLinkActive="active-link" routerLink="/profile/st"
+              class="text-gray-500 hover:text-blue-500 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+              <svg class="svg-icon" width="22" stroke="0.5" height="22" style="fill: currentColor;overflow: hidden;"
+                viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M384 426.666667a42.666667 42.666667 0 0 0-42.666667 42.666666v85.333334a42.666667 42.666667 0 0 0 85.333334 0v-85.333334a42.666667 42.666667 0 0 0-42.666667-42.666666z m512 42.666666a42.666667 42.666667 0 0 0 42.666667-42.666666V256a42.666667 42.666667 0 0 0-42.666667-42.666667H128a42.666667 42.666667 0 0 0-42.666667 42.666667v170.666667a42.666667 42.666667 0 0 0 42.666667 42.666666 42.666667 42.666667 0 0 1 0 85.333334 42.666667 42.666667 0 0 0-42.666667 42.666666v170.666667a42.666667 42.666667 0 0 0 42.666667 42.666667h768a42.666667 42.666667 0 0 0 42.666667-42.666667v-170.666667a42.666667 42.666667 0 0 0-42.666667-42.666666 42.666667 42.666667 0 0 1 0-85.333334z m-42.666667-77.653333a128 128 0 0 0 0 240.64V725.333333H426.666667a42.666667 42.666667 0 0 0-85.333334 0H170.666667v-93.013333a128 128 0 0 0 0-240.64V298.666667h170.666666a42.666667 42.666667 0 0 0 85.333334 0h426.666666z" />
+              </svg>
+              Coupons
+            </a>
+          </li>
+          <li>
+            <a *ngIf="type==1" routerLinkActive="active-link" routerLink="/profile/changePassword"
+              class="text-gray-500 hover:text-blue-500 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+              <svg class="svg-icon" class="h-6 w-6 shrink-0 group-hover:text-blue-500" fill="currentColor"
+                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"
+                style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024"
+                version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M288 416v-96a128 128 0 0 1 256 0v96h64v-96c0-106-86-192-192-192s-192 86-192 192v96zM512 704h-64v-64l384-384 64 64-384 384z" />
+                <path
+                  d="M544 736H416V608l160-160H192a64.19 64.19 0 0 0-64 64v320a64.19 64.19 0 0 0 64 64h448a64.19 64.19 0 0 0 64-64V576z" />
+              </svg>
+
+              Add Password
+            </a>
+            <a *ngIf="type==0" routerLinkActive="active-link" routerLink="changePassword"
+              class="text-gray-500 hover:text-blue-500 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+              <svg class="svg-icon" class="h-6 w-6 shrink-0 group-hover:text-blue-500" fill="currentColor"
+                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"
+                style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024"
+                version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M288 416v-96a128 128 0 0 1 256 0v96h64v-96c0-106-86-192-192-192s-192 86-192 192v96zM512 704h-64v-64l384-384 64 64-384 384z" />
+                <path
+                  d="M544 736H416V608l160-160H192a64.19 64.19 0 0 0-64 64v320a64.19 64.19 0 0 0 64 64h448a64.19 64.19 0 0 0 64-64V576z" />
+              </svg>
+
+              Change Password
+            </a>
+          </li>
+          <li>
+            <a routerLinkActive="active-link" routerLink="/vendor/stores"
+              class="text-gray-500 hover:text-blue-500 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+              <svg class="h-6 w-6 shrink-0 group-hover:text-blue-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+              </svg>
+              Review and Ratings
+            </a>
+          </li>
+
+
+        </ul>
+        <ul class="pt-4 pb-2  space-y-1 text-sm">
+
+          <li>
+            <a routerLinkActive="active-link" routerLink="/vendor/stores"
+              class="text-gray-500 hover:text-blue-500 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                class="w-5 h-5 fill-current dark:text-gray-500">
+                <path
+                  d="M245.151,168a88,88,0,1,0,88,88A88.1,88.1,0,0,0,245.151,168Zm0,144a56,56,0,1,1,56-56A56.063,56.063,0,0,1,245.151,312Z">
+                </path>
+                <path
+                  d="M464.7,322.319l-31.77-26.153a193.081,193.081,0,0,0,0-80.332l31.77-26.153a19.941,19.941,0,0,0,4.606-25.439l-32.612-56.483a19.936,19.936,0,0,0-24.337-8.73l-38.561,14.447a192.038,192.038,0,0,0-69.54-40.192L297.49,32.713A19.936,19.936,0,0,0,277.762,16H212.54a19.937,19.937,0,0,0-19.728,16.712L186.05,73.284a192.03,192.03,0,0,0-69.54,40.192L77.945,99.027a19.937,19.937,0,0,0-24.334,8.731L21,164.245a19.94,19.94,0,0,0,4.61,25.438l31.767,26.151a193.081,193.081,0,0,0,0,80.332l-31.77,26.153A19.942,19.942,0,0,0,21,347.758l32.612,56.483a19.937,19.937,0,0,0,24.337,8.73l38.562-14.447a192.03,192.03,0,0,0,69.54,40.192l6.762,40.571A19.937,19.937,0,0,0,212.54,496h65.222a19.936,19.936,0,0,0,19.728-16.712l6.763-40.572a192.038,192.038,0,0,0,69.54-40.192l38.564,14.449a19.938,19.938,0,0,0,24.334-8.731L469.3,347.755A19.939,19.939,0,0,0,464.7,322.319Zm-50.636,57.12-48.109-18.024-7.285,7.334a159.955,159.955,0,0,1-72.625,41.973l-10,2.636L267.6,464h-44.89l-8.442-50.642-10-2.636a159.955,159.955,0,0,1-72.625-41.973l-7.285-7.334L76.241,379.439,53.8,340.562l39.629-32.624-2.7-9.973a160.9,160.9,0,0,1,0-83.93l2.7-9.972L53.8,171.439l22.446-38.878,48.109,18.024,7.285-7.334a159.955,159.955,0,0,1,72.625-41.973l10-2.636L222.706,48H267.6l8.442,50.642,10,2.636a159.955,159.955,0,0,1,72.625,41.973l7.285,7.334,48.109-18.024,22.447,38.877-39.629,32.625,2.7,9.972a160.9,160.9,0,0,1,0,83.93l-2.7,9.973,39.629,32.623Z">
+                </path>
+              </svg>
+              Settings
+            </a>
+          </li>
+          <li>
+            <a (click)="logOut()"
+              class="text-gray-500 cursor-pointer hover:text-blue-500 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                class="w-5 h-5 fill-current dark:text-gray-500">
+                <path
+                  d="M440,424V88H352V13.005L88,58.522V424H16v32h86.9L352,490.358V120h56V456h88V424ZM320,453.642,120,426.056V85.478L320,51Z">
+                </path>
+                <rect width="32" height="64" x="256" y="232"></rect>
+              </svg>
+              Logout
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+
+
+  </div>
+  <!--  icon sidebar for desktop -->
+
+
+
+  <div *ngIf="iconSidebarClicked" class="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-18 lg:flex-col">
+    <!-- Sidebar component, swap this element with another sidebar if you like -->
+    <div class="flex grow flex-col gap-y-0 overflow-y-auto border-r border-gray-200 bg-white px-6">
+      <div (click)="reloadWindow()" class="flex h-16 shrink-0 items-center">
+        <img class="h-4 w-auto" src="../../../../assets/RX_logo.png" alt="Your Company" />
+      </div>
+      <nav class="flex flex-1 flex-col">
+        <ul role="list" class="flex flex-1 flex-col gap-y-7">
+          <li>
+            <ul role="list" class="-mx-2 space-y-1">
+              <li>
+                <!-- Current: "bg-gray-50 text-blue-500", Default: "text-gray-700 hover:text-blue-500 hover:bg-gray-50" -->
+                <a class="text-gray-400 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+                  <span (mouseenter)="showArrow = true" (mouseleave)="showArrow = false" class="inline-block">
+                    <svg *ngIf="!showArrow" (click)="staticSidebar()" class="h-6 w-6 shrink-0 text-blue-500" fill="none"
+                      viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+
+                    <svg *ngIf="showArrow" (click)="staticSidebar()" class="h-6 w-6 shrink-0 text-blue-500" fill="none"
+                      viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </a>
+              </li>
+              <li [matTooltip]="'Dashboard'" matTooltipPosition="after">
+                <!-- Current: "bg-gray-50 text-blue-500", Default: "text-gray-700 hover:text-blue-500 hover:bg-gray-50" -->
+                <a routerLinkActive="active-link" routerLink="/vendor/dashboard"
+                  class="text-gray-400 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+                  <svg class="h-6 w-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                    aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                  </svg>
+                </a>
+              </li>
+
+              <li [matTooltip]="'Stores'" matTooltipPosition="after">
+                <a routerLinkActive="active-link" routerLink="/vendor/stores"
+                  class="text-gray-400 hover:text-blue-500 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+                  <svg class="h-6 w-6 shrink-0 group-hover:text-blue-500" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+                  </svg>
+                </a>
+              </li>
+
+              <li [matTooltip]="'Products'" matTooltipPosition="after">
+                <a routerLinkActive="active-link" routerLink="/vendor/products"
+                  class="text-blue-500 hover:text-blue-500 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+                  <svg class="h-6 w-6 shrink-0 group-hover:text-blue-500" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
+                  </svg>
+                </a>
+              </li>
+
+              <li [matTooltip]="'Orders'" matTooltipPosition="after">
+                <a routerLinkActive="active-link" routerLink="/vendor/orders"
+                  class="text-gray-400 hover:text-blue-500 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+                  <svg class="h-6 w-6 shrink-0 group-hover:text-blue-500" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                  </svg>
+                </a>
+              </li>
+
+              <li [matTooltip]="'Reports'" matTooltipPosition="after">
+                <a routerLinkActive="active-link" routerLink="/vendor/reports"
+                  class="text-gray-400 hover:text-blue-500 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+                  <svg class="h-6 w-6 shrink-0 group-hover:text-blue-500" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z" />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li [matTooltip]="'Logout'" matTooltipPosition="after" class="-mx-6 mt-auto mb-4 cursor-pointer"
+            (click)="logOut()">
+            <a
+              class="flex text-gray-400 items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 hover:text-blue-500">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-log-out">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                <polyline points="16 17 21 12 16 7"></polyline>
+                <line x1="21" y1="12" x2="9" y2="12"></line>
+              </svg>
+              <span class="sr-only">Your profile</span>
+              <span aria-hidden="true"> </span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="sticky top-0 z-40 flex items-center gap-x-6 bg-white px-4 py-4 shadow-sm sm:px-6 lg:hidden">
+    <button type="button" (click)="toggleSidebar()" class="-m-2.5 p-2.5 text-gray-700 lg:hidden">
+      <span class="sr-only">Open sidebar</span>
+      <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+    </button>
+    <div class="flex-1 text-sm font-semibold leading-6 text-gray-900">
+      Dashboard
+    </div>
+    <a href="#">
+      <span class="sr-only">Your profile</span>
+      <img class="h-8 w-8 rounded-full bg-gray-50"
+        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt="" />
+    </a>
+  </div>
+</div>

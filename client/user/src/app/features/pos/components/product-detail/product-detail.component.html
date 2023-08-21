@@ -1,0 +1,527 @@
+<!-- navBar.  -->
+<app-nav></app-nav>
+
+<div class="bg-white pt-6">
+  <main class="mx-12 max-w-full sm:px-6 sm:pt-16 lg:px-8">
+    <div class="mx-auto max-w-2xl lg:max-w-none">
+      <!-- Product -->
+      <div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-20">
+        <app-image-gallery [productImageList]="productImageList"></app-image-gallery>
+
+        <!-- Image gallery sckeleton -->
+        <!-- Product info -->
+        <div class="max-h-screen mt-24 px-4 sm:mt-16 sm:px-0 lg:mt-0 overflow-y-scroll scrollbar-hide">
+          <h1 class="text-3xl font-bold tracking-tight text-gray-900">
+            {{ productDetail?.name | titlecase }}
+            <!-- h-screen overflow-y-auto scrollbar-hide -->
+          </h1>
+          <h4 class="text-sm font-bold tracking-tight text-gray-400">
+            {{ productDetail?.subCategoryName }}
+            <!-- h-screen overflow-y-auto scrollbar-hide -->
+          </h4>
+
+          <div class="my-8">
+            <div class="flex">
+              <p class="text-3xl font-bold text-gray-900">
+                ₹ {{ productDetail?.price | number }}
+                <span class="text-xs text-gray-600">/Day</span>
+              </p>
+              <del class="ml-2 align-super text-base font-bold text-blue-500">
+                ₹{{
+                productDetail?.price + 0.3 * productDetail?.price | number
+                }}
+              </del>
+            </div>
+
+            <div class="mt-3 flex items-center text-sm font-medium text-gray-600">
+              <svg class="mr-2 block h-4 w-4 align-middle text-green-500" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z"
+                  clip-rule="evenodd" class=""></path>
+              </svg>
+              Save 30% right now
+            </div>
+          </div>
+
+          <!-- Reviews -->
+          <div class="mt-3">
+            <h3 class="sr-only">Reviews</h3>
+            <div class="flex items-center">
+              <div class="flex items-center">
+                <!-- Active: "text-blue-500", Inactive: "text-gray-300" -->
+                <svg class="h-5 w-5 flex-shrink-0 text-blue-500" viewBox="0 0 20 20" fill="currentColor"
+                  aria-hidden="true">
+                  <path fill-rule="evenodd"
+                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                    clip-rule="evenodd" />
+                </svg>
+
+                <svg class="h-5 w-5 flex-shrink-0 text-blue-500" viewBox="0 0 20 20" fill="currentColor"
+                  aria-hidden="true">
+                  <path fill-rule="evenodd"
+                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                    clip-rule="evenodd" />
+                </svg>
+
+                <svg class="h-5 w-5 flex-shrink-0 text-blue-500" viewBox="0 0 20 20" fill="currentColor"
+                  aria-hidden="true">
+                  <path fill-rule="evenodd"
+                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                    clip-rule="evenodd" />
+                </svg>
+
+                <svg class="h-5 w-5 flex-shrink-0 text-blue-500" viewBox="0 0 20 20" fill="currentColor"
+                  aria-hidden="true">
+                  <path fill-rule="evenodd"
+                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                    clip-rule="evenodd" />
+                </svg>
+
+                <svg class="h-5 w-5 flex-shrink-0 text-gray-300" viewBox="0 0 20 20" fill="currentColor"
+                  aria-hidden="true">
+                  <path fill-rule="evenodd"
+                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                    clip-rule="evenodd" />
+                </svg>
+              </div>
+              <p class="text-gray-600 ml-4 text-sm">22 Reviews</p>
+            </div>
+            <img src="../../../../../assets/assured.png" alt="" srcset="" class="h-5 w-auto my-4" />
+          </div>
+          <!-- description. -->
+          <div class="mt-8">
+            <h3 class="sr-only">Description</h3>
+
+            <div class="space-y-6 text-base text-gray-700 break-words text-justify">
+              <p>
+                {{ productDetail?.description }}
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <h3 class="sr-only">warrenty & delivery</h3>
+            <div id="warrenty  " class="text-blue-500 flex">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="feather feather-shield">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </span>
+
+              <p class="ml-6 text-gray-600 text-sm">Rentex extended warrenty</p>
+            </div>
+            <div id="warrenty" class="text-blue-500 flex mt-6">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="feather feather-archive">
+                  <polyline points="21 8 21 21 3 21 3 8"></polyline>
+                  <rect x="1" y="3" width="22" height="5"></rect>
+                  <line x1="10" y1="12" x2="14" y2="12"></line>
+                </svg>
+              </span>
+
+              <p class="ml-6 text-gray-600 text-sm">
+                Cash on delivery available
+              </p>
+            </div>
+
+            <div id="warrenty" class="text-blue-500 flex mt-6">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="26" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="feather feather-map-pin">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </span>
+
+              <p class="ml-6 text-gray-600 text-sm">
+                Available at our <b>{{productDetail?.storeName |titleCase}}</b> Store
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-10 flex">
+            <!-- add to bag.  -->
+            <button *ngIf="!productDetail?.isCarted" (click)="handleAddToCart(productDetail)"
+              class="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-blue-500 px-8 py-3 text-base font-medium text-white hover:bg-blue-400 focus:outline-none focus:ring-2 focus:blue-blue-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full">
+              Add to cart
+            </button>
+            <button *ngIf="productDetail.isCarted" (click)="handleGoToCart()"
+              class="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-blue-500 px-8 py-3 text-base font-medium text-white hover:bg-blue-400 focus:outline-none focus:ring-2 focus:blue-blue-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full">
+              Go to cart
+            </button>
+            <!-- wishlist .  -->
+            <button *ngIf="!wishlistFlag" (click)="handleAddToWishList(productDetail.id)" type="button"
+              class="ml-4 flex items-center justify-center rounded-md px-3 py-3 text-gray-400 hover:text-blue-500">
+              <svg class="h-8 w-8 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor"
+                aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+              </svg>
+              <span class="sr-only">Add to Wishlist</span>
+            </button>
+            <button *ngIf="wishlistFlag" (click)="handleRemoveFromWishList(wishListId)" type="button"
+              class="ml-4 flex items-center justify-center rounded-md px-3 py-3 text-red-200 hover:text-red-500">
+              <svg class="h-8 w-8 flex-shrink-0" fill="#f62222" viewBox="0 0 24 24" stroke-width="1"
+                stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+              </svg>
+              <span class="sr-only">Add to Wishlist</span>
+            </button>
+          </div>
+
+          <form class="mt-6" [formGroup]="range">
+            <div class="mt-12 flex justify-start items-start w-full lg:w-52">
+              <div class="flex max-w-xs flex-1 items-center h-8 text-gray-600 sm:w-full">
+                <button (click)="decrementQuantity()"
+                  class="flex items-center justify-center rounded-l-md bg-gray-200 px-4 h-full transition hover:bg-blue-500 hover:text-white">
+                  -
+                </button>
+                <div
+                  class="flex w-full items-center justify-center bg-gray-100 text-xs uppercase transition text-center">
+                  <input (input)="onQuantityEnter()" onkeypress="onlyNumbers(event)" onpaste="onlyNumbers(event)"
+                    formControlName="qty" type="text" [maxLength]="6" name="price" id="price"
+                    class="block w-full text-center border-0 px-5 py-1 text-gray-600 ring-gray-300 placeholder:text-gray-400 focus:ring-inset focus:ring-blue-300 sm:text-sm sm:leading-6"
+                    placeholder="Qty : 01" />
+                </div>
+                <button (click)="incrementQuantity()"
+                  class="flex items-center justify-center rounded-r-md bg-gray-200 px-4 h-full transition hover:bg-blue-500 hover:text-white">
+                  +
+                </button>
+              </div>
+            </div>
+
+            <!-- date picker.  -->
+            <div class="mt-10 flex items-center">
+              <h3 class="sr-only">Date range picker</h3>
+
+              <mat-form-field class="flex max-w-xs flex-1 items-center justify-center sm:w-full" appearance="fill">
+                <mat-label class="text-blue-500">Enter a date range</mat-label>
+                <mat-date-range-input [min]="minDate" [rangePicker]="picker"
+                  class="custom-input pointer-events-none text-gray-600">
+                  <input formControlName="start" matStartDate placeholder="Start date" readonly
+                    class="pointer-events-none text-xs focus:ring-0 focus:ring-offset-0" />
+                  <input formControlName="end" matEndDate placeholder="End date" readonly
+                    class="text-xs pointer-events-none focus:ring-0 focus:ring-offset-0" />
+                </mat-date-range-input>
+                <mat-datepicker-toggle class="w-full" matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+              </mat-form-field>
+            </div>
+            <span *ngIf="isAvailable && currentQuantity <= availabileQty"
+              class="text-xs lg:text-sm font-poppins_italic mt-4 text-green-500">Ready for you to order!
+            </span>
+            <span *ngIf="currentQuantity > availableStock"
+              class="text-xs lg:text-sm font-poppins_italic mt-4 text-red-500">
+              Product Quantity Out of range! Only {{ availabileQty }} (pcs)
+              left.
+            </span>
+            <span *ngIf="
+                !isAvailable &&
+                currentQuantity >= availabileQty &&
+                availabilityMessageFlag != 1
+              " class="text-xs lg:text-sm font-poppins_italic mt-4 text-red-500">Ooops! Item is not in stock. Only {{
+              availabileQty }} (pcs) left.
+            </span>
+            <!-- date picker D end -->
+          </form>
+          <!-- what make us different. -->
+          <section aria-labelledby="policy-heading" class="mt-16 lg:mt-24">
+            <h2 id="policy-heading" class="sr-only">Our policies</h2>
+            <div class="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 lg:gap-x-8">
+              <div>
+                <img src="../../../../../assets/freeDelivery.png" alt="" class="h-24 w-auto" />
+                <h3 class="mt-6 text-base font-medium text-gray-600">
+                  Free delivery
+                </h3>
+              </div>
+
+              <div>
+                <img src="../../../../../assets/CustomerSupport.png" alt="" class="h-24 w-auto" />
+                <h3 class="mt-6 text-base font-medium text-gray-600">
+                  24/7 Customer Support
+                </h3>
+              </div>
+
+              <div>
+                <img src="../../../../../assets/fastCart.png" alt="" class="h-24 w-auto" />
+                <h3 class="mt-6 text-base font-medium text-gray-600">
+                  Fast Shopping Cart
+                </h3>
+              </div>
+
+              <div>
+                <img src="../../../../../assets/giftCard.png" alt="" class="h-24 w-auto object-cover" />
+                <h3 class="mt-6 text-base font-medium text-gray-600">
+                  Gift Cards
+                </h3>
+              </div>
+            </div>
+          </section>
+
+          <!-- features section start. -->
+          <section aria-labelledby="details-heading" class="mt-12">
+            <h2 id="details-heading" class="sr-only">Additional details</h2>
+
+            <div class="divide-y divide-gray-200 border-t">
+              <div>
+                <h3>
+                  <!-- Expand/collapse question button -->
+                  <button type="button" class="group relative flex w-full items-center justify-between py-6 text-left"
+                    aria-controls="disclosure-1" aria-expanded="false">
+                    <span class="text-gray-600 text-lg font-medium">Specifications</span>
+                    <span class="ml-6 flex items-center" (click)="toggleElement(featureList)">
+                      <!-- Open: "hidden", Closed: "block" -->
+                      <svg *ngIf="hasHiddenClass(featureList)"
+                        class="block h-6 w-6 text-gray-400 group-hover:text-gray-500 transition-all" fill="none"
+                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                      </svg>
+                      <!-- Open: "block", Closed: "hidden" -->
+                      <svg *ngIf="!hasHiddenClass(featureList)"
+                        class="h-6 w-6 text-blue-400 group-hover:text-blue-500 transition-all" fill="none"
+                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+                      </svg>
+                    </span>
+                  </button>
+                </h3>
+                <div #featureList class="prose prose-sm py-6 animate-fade animate-once animate-ease-linear"
+                  id="disclosure-1">
+                  <ul role="list" class="text-gray-600" *ngFor="let spec of productDetail?.specification | keyvalue">
+                    <li class="flex-row lg:flex items-center max-w-sm text-left">
+                      <span class="mr-2 w-1/2">
+                        {{ transformToTitleCase(spec.key) }}
+                      </span>
+                      <span class="text-gray-800 ml-2 w-1/2">
+                        {{ spec.value }}
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- features section end. -->
+          <!-- Customer Reviews start-->
+          <div id="tab-panel-reviews" class="-mb-10 mt-12" aria-labelledby="tab-reviews" role="tabpanel" tabindex="0">
+            <h3 class="sr-only">Customer Reviews</h3>
+            <span class="text-gray-600 text-lg font-medium">Customer Reviews (22)</span>
+            <div id="reviewBar" class="my-12">
+              <div class="flex items-center mb-3">
+                <svg aria-hidden="true" class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <title>First star</title>
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                  </path>
+                </svg>
+                <svg aria-hidden="true" class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <title>Second star</title>
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                  </path>
+                </svg>
+                <svg aria-hidden="true" class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <title>Third star</title>
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                  </path>
+                </svg>
+                <svg aria-hidden="true" class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <title>Fourth star</title>
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                  </path>
+                </svg>
+                <svg aria-hidden="true" class="w-5 h-5 text-gray-300" fill="currentColor" viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <title>Fifth star</title>
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                  </path>
+                </svg>
+                <p class="ml-2 text-sm font-medium text-gray-900">
+                  4.95 out of 5
+                </p>
+              </div>
+              <p class="text-sm font-medium text-gray-500">22 global ratings</p>
+              <div class="flex items-center mt-6">
+                <span class="text-sm font-medium text-blue-600">5 star</span>
+                <div class="w-2/4 h-5 mx-4 bg-gray-200 rounded">
+                  <div class="h-5 bg-blue-400 rounded" style="width: 70%"></div>
+                </div>
+                <span class="text-sm font-medium text-blue-600">70%</span>
+              </div>
+              <div class="flex items-center mt-4">
+                <span class="text-sm font-medium text-blue-600">4 star</span>
+                <div class="w-2/4 h-5 mx-4 bg-gray-200 rounded">
+                  <div class="h-5 bg-blue-400 rounded" style="width: 17%"></div>
+                </div>
+                <span class="text-sm font-medium text-blue-600">17%</span>
+              </div>
+              <div class="flex items-center mt-4">
+                <span class="text-sm font-medium text-blue-600">3 star</span>
+                <div class="w-2/4 h-5 mx-4 bg-gray-200 rounded">
+                  <div class="h-5 bg-blue-400 rounded" style="width: 8%"></div>
+                </div>
+                <span class="text-sm font-medium text-blue-600">8%</span>
+              </div>
+              <div class="flex items-center mt-4">
+                <span class="text-sm font-medium text-blue-600">2 star</span>
+                <div class="w-2/4 h-5 mx-4 bg-gray-200 rounded">
+                  <div class="h-5 bg-blue-400 rounded" style="width: 4%"></div>
+                </div>
+                <span class="text-sm font-medium text-blue-600">4%</span>
+              </div>
+              <div class="flex items-center mt-4">
+                <span class="text-sm font-medium text-blue-600">1 star</span>
+                <div class="w-2/4 h-5 mx-4 bg-gray-200 rounded">
+                  <div class="h-5 bg-blue-400 rounded" style="width: 1%"></div>
+                </div>
+                <span class="text-sm font-medium text-blue-600">1%</span>
+              </div>
+            </div>
+
+            <div id="reviewCards">
+              <div class="flex space-x-4 text-sm text-gray-500">
+                <div class="flex-none py-10">
+                  <img
+                    src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80"
+                    alt="" class="h-10 w-10 rounded-full bg-gray-100" />
+                </div>
+                <div class="py-10">
+                  <h3 class="font-medium text-gray-900">Emily Selman</h3>
+                  <p><time datetime="2021-07-16">July 16, 2021</time></p>
+
+                  <div class="mt-4 flex items-center">
+                    <!-- Active: "text-blue-500", Default: "text-gray-300" -->
+                    <svg class="text-blue-500 h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"
+                      aria-hidden="true">
+                      <path fill-rule="evenodd"
+                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                        clip-rule="evenodd" />
+                    </svg>
+
+                    <svg class="text-blue-500 h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"
+                      aria-hidden="true">
+                      <path fill-rule="evenodd"
+                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                        clip-rule="evenodd" />
+                    </svg>
+
+                    <svg class="text-blue-500 h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"
+                      aria-hidden="true">
+                      <path fill-rule="evenodd"
+                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                        clip-rule="evenodd" />
+                    </svg>
+
+                    <svg class="text-blue-500 h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"
+                      aria-hidden="true">
+                      <path fill-rule="evenodd"
+                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                        clip-rule="evenodd" />
+                    </svg>
+
+                    <svg class="text-blue-500 h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"
+                      aria-hidden="true">
+                      <path fill-rule="evenodd"
+                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                        clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                  <p class="sr-only">5 out of 5 stars</p>
+
+                  <div class="prose prose-sm mt-4 max-w-none text-gray-500 text-justify">
+                    <p>
+                      This icon pack is just what I need for my latest project.
+                      There's an icon for just about anything I could ever need.
+                      Love the playful look!
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex space-x-4 text-sm text-gray-500">
+                <div class="flex-none py-10">
+                  <img
+                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80"
+                    alt="" class="h-10 w-10 rounded-full bg-gray-100" />
+                </div>
+                <div class="py-10 border-t border-gray-200">
+                  <h3 class="font-medium text-gray-900">Hector Gibbons</h3>
+                  <p><time datetime="2021-07-12">July 12, 2021</time></p>
+
+                  <div class="mt-4 flex items-center">
+                    <!-- Active: "text-blue-500", Default: "text-gray-300" -->
+                    <svg class="text-blue-500 h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"
+                      aria-hidden="true">
+                      <path fill-rule="evenodd"
+                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                        clip-rule="evenodd" />
+                    </svg>
+
+                    <svg class="text-blue-500 h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"
+                      aria-hidden="true">
+                      <path fill-rule="evenodd"
+                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                        clip-rule="evenodd" />
+                    </svg>
+
+                    <svg class="text-blue-500 h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"
+                      aria-hidden="true">
+                      <path fill-rule="evenodd"
+                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                        clip-rule="evenodd" />
+                    </svg>
+
+                    <svg class="text-blue-500 h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"
+                      aria-hidden="true">
+                      <path fill-rule="evenodd"
+                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                        clip-rule="evenodd" />
+                    </svg>
+
+                    <svg class="text-blue-500 h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"
+                      aria-hidden="true">
+                      <path fill-rule="evenodd"
+                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                        clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                  <p class="sr-only">5 out of 5 stars</p>
+
+                  <div class="prose prose-sm mt-4 max-w-none text-gray-500 text-justify">
+                    <p>
+                      Blown away by how polished this icon pack is. Everything
+                      looks so consistent and each SVG is optimized out of the
+                      box so I can use it directly with confidence. It would
+                      take me several hours to create a single icon this good,
+                      so it's a steal at this price.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Customer Reviews end-->
+        </div>
+      </div>
+      <!-- similar Products. -->
+      <app-product-similar [categoryId]="categoryId"></app-product-similar>
+    </div>
+  </main>
+
+  <!-- footer section.  -->
+  <app-footer></app-footer>
+</div>

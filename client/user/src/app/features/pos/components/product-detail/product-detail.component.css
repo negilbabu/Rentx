@@ -1,0 +1,77 @@
+.thumbnail .keen-slider__slide.active {
+  border: 2px solid rgb(147 197 253);
+}
+
+::ng-deep .mat-date-range-picker-content {
+  background-color: rgb(147 197 253) !important;
+}
+
+::ng-deep .mat-date-range-input-container {
+  border: none !important;
+}
+::ng-deep .cdk-focused,
+::ng-deep .cdk-program-focused {
+  outline-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* styles.css (or your component's CSS file) */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-moz-inner-spin-button,
+input[type="number"]::-moz-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.date-range-input {
+  width: 200px;
+}
+
+::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: rgb(251, 251, 251) !important;
+}
+/* mat-label {
+  color: rgb(243, 243, 243) !important;
+} */
+
+::ng-deep .mat-select-arrow {
+  color: rgb(255, 255, 255);
+}
+::ng-deep .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: rgb(255, 255, 255);
+}
+:host ::ng-deep .mat-form-field-flex {
+  background-color: transparent !important;
+}
+
+:host ::ng-deep .mat-button,
+:host ::ng-deep .mat-icon-button,
+:host ::ng-deep .mat-stroked-button {
+  color: gray;
+  background-color: transparent;
+}
+:host ::ng-deep .mat-calendar-body-cell-content,
+:host ::ng-deep .mat-focus-indicator,
+:host ::ng-deep .mat-calendar-body-selected {
+  color: gray;
+  background-color: transparent;
+}
+:host ::ng-deep .mat-calendar-body-cell-content {
+  border-radius: 0;
+}
+
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+
+::ng-deep .mat-form-field-ripple {
+  display: none;
+}
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  border-radius: 0 !important;
+  padding: 0 !important;
+}

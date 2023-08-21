@@ -1,0 +1,426 @@
+<ngx-ui-loader></ngx-ui-loader>
+<div id="addStore" class="py-10">
+  <form [formGroup]="editStoreForm">
+    <div class="space-y-12 px-20">
+      <div class="border-b border-gray-900/10 pb-12">
+        <h2 class="text-lg font-poppins_semi_bold leading-7 text-gray-900">
+          Store Information
+          <button class="hover:text-blue-600" (click)="editHandle()" [ngStyle]="getMyStyles()"   [matTooltip]="'Toggle to Edit or View Store'">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-edit"
+            >
+              <path
+                d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+              ></path>
+              <path
+                d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+              ></path>
+            </svg>
+          </button>
+        </h2>
+        <p class="mt-1 text-sm leading-6 text-gray-600">
+          View store and its information.
+        </p>
+
+        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div class="sm:col-span-4">
+            <label
+              for="store-name"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >Store name</label
+            >
+            <div class="mt-2">
+              <input
+                [attr.disabled]="iseditable ? null : true"
+                [ngClass]="{'show-border': !iseditable}"
+                [ngModel]="storeDetails.name"
+                maxlength="20"
+                formControlName="name"
+                type="text"
+                name="store-name"
+                id="store-name"
+                autocomplete="given-name"
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+              />
+              <ng-container
+                *ngIf="
+                  editStoreForm.get('name')?.dirty ||
+                  editStoreForm.get('name')?.touched ||
+                  formSubmitted
+                "
+              >
+                <span
+                  class="text-red-500 text text-sm"
+                  *ngIf="editStoreForm.get('name')?.errors?.['required']"
+                >
+                  Store Name field cannot be left blank.
+                </span>
+
+                <span class="text-red-500 text-sm">
+                  {{editStoreForm.get('name')?.errors?.['pattern'] ? ' Please enter valid Store Name.' : 
+                editStoreForm.get('name')?.errors?.['minlength'] ?  'Please enter valid Store Name.'  : ''
+                  }}
+                </span>
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="sm:col-span-4">
+            <label class="block text-sm font-medium leading-6 text-gray-900"
+              >Mobile</label
+            >
+            <div class="mt-2">
+              <input
+                [attr.disabled]="iseditable ? null : true"
+                [ngModel]="storeDetails.mobile"
+                maxlength="15"
+                formControlName="mobile"
+                type="text"
+                name="mobile"
+                id="mobile"
+                autocomplete="family-name"
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+              />
+              <ng-container
+                *ngIf="
+                  editStoreForm.get('mobile')?.dirty ||
+                  editStoreForm.get('mobile')?.touched ||
+                  formSubmitted
+                "
+              >
+                <span
+                  class="text-red-500 text text-sm"
+                  *ngIf="editStoreForm.get('mobile')?.errors?.['required']"
+                >
+                  Mobile number cannot be left blank.
+                </span>
+                <span
+                  class="text-red-500 text text-sm"
+                  *ngIf="editStoreForm.get('mobile')?.errors?.['pattern']"
+                >
+                  Please enter valid mobile number.
+                </span>
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="sm:col-span-4">
+            <label
+              for="buildingName"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >Building name</label
+            >
+            <div class="mt-2">
+              <input
+                [attr.disabled]="iseditable ? null : true"
+                [ngModel]="storeDetails.buildingName"
+                maxlength="20"
+                formControlName="buildingName"
+                id="buildingName"
+                name="buildingName"
+                type="text"
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+              />
+              <ng-container
+                *ngIf="
+                  editStoreForm.get('buildingName')?.dirty ||
+                  editStoreForm.get('buildingName')?.touched ||
+                  formSubmitted
+                "
+              >
+                <span
+                  class="text-red-500 text text-sm"
+                  *ngIf="editStoreForm.get('buildingName')?.errors?.['required']"
+                >
+                  Building name cannot be left blank.
+                </span>
+
+                <span class="text-red-500 text-sm">
+                  {{editStoreForm.get('buildingName')?.errors?.['pattern'] ? ' Please enter valid Store Name.' : 
+                editStoreForm.get('buildingName')?.errors?.['minlength'] ?  'Please enter valid Store Name.'  : ''
+                  }}
+                </span>
+              </ng-container>
+            </div>
+          </div>
+          <div class="sm:col-span-4">
+            <label
+              for="postal-code"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >ZIP / Postal code</label
+            >
+            <div class="mt-2">
+              <input
+                [attr.disabled]="iseditable ? null : true"
+                [ngModel]="storeDetails.pincode"
+                maxlength="8"
+                formControlName="pincode"
+                type="text"
+                name="postal-code"
+                id="postal-code"
+                autocomplete="postal-code"
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+              />
+              <ng-container
+                *ngIf="
+                  editStoreForm.get('pincode')?.dirty ||
+                  editStoreForm.get('pincode')?.touched ||
+                  formSubmitted
+                "
+              >
+                <span
+                  class="text-red-500 text text-sm"
+                  *ngIf="editStoreForm.get('pincode')?.errors?.['required']"
+                >
+                  Pincode cannot be left blank.
+                </span>
+
+                <span class="text-red-500 text-sm">
+                  {{editStoreForm.get('pincode')?.errors?.['pattern'] ? 'Enter valid Zip Code.': 
+                editStoreForm.get('pincode')?.errors?.['minlength'] ? 'Enter valid Zip Code.': ''
+                  }}
+                </span>
+              </ng-container>
+            </div>
+          </div>
+
+          <div
+            class="sm:col-span-4"
+            *ngIf="citySearchFlag == false && iseditable === false"
+          >
+            <label
+              *ngIf="citySearchFlag == false"
+              for="City"
+              class="block text-sm mb-2 font-medium leading-6 text-gray-900"
+              >City</label
+            >
+
+            <div class="mt-2">
+              <input
+                [attr.disabled]="false"
+                [ngModel]="storeDetails.city"
+                maxlength="8"
+                formControlName="city"
+                type="text"
+                name="city"
+                id="city"
+                autocomplete="city"
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+              />
+              <ng-container *ngIf="!isCityValid && formSubmitted">
+                <span
+                  class="text-red-500 text text-sm"
+                  *ngIf="editStoreForm.get('city')?.errors?.['required']"
+                >
+                  City cannot be left blank.
+                </span>
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="sm:col-span-2 sm:col-start-1" *ngIf="iseditable === true">
+            <label
+              for="City"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >City</label
+            >
+            <div class="mt-2">
+              <input
+                [attr.disabled]="false"
+                [ngModel]="storeDetails.city"
+                maxlength="20"
+                formControlName="city"
+                type="text"
+                name="city"
+                id="city"
+                autocomplete="city"
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+              />
+            </div>
+            <ng-container *ngIf="!isCityValid">
+              <span
+                class="text-red-500 text text-sm"
+                *ngIf="editStoreForm.get('city')?.errors?.['required']"
+              >
+                City cannot be left blank.
+              </span>
+            </ng-container>
+          </div>
+
+          <div
+            class="sm:col-span-2 sm:col-start-3"
+            *ngIf="iseditable === true && citySearchFlag == false"
+          >
+            <div class="mt-2">
+              <div><br /></div>
+              <button
+                (click)="changeLocation()"
+                type="submit"
+                class="text-blue-500 text-sm "
+              >Change Store location?
+              </button>
+            </div>
+          </div>
+
+          <div class="sm:col-span-2 sm:col-start-3" [hidden]="!citySearchFlag">
+            <label
+              for="City"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >Select City</label
+            >
+
+            <div class="mt-2">
+              <div
+                [attr.disabled]="iseditable ? false : null"
+                formControlName="city"
+                id="search-box"
+                [ngModel]="storeDetails.city"
+                class="py-0.5 block rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+              ></div>
+            </div>
+          </div>
+
+          <!-- ...............................................................searchbox............ -->
+          <!-- <div class="sm:col-span-4" [hidden]="!citySearchFlag">
+                    <label
+                      for="City"
+                      class="block text-sm font-medium leading-6 text-gray-900"
+                      >Select City</label
+                    >
+        
+                    <div class="mt-2">
+                      <div
+                        [attr.disabled]="iseditable ? false : null"
+                        formControlName="city"
+                        id="search-box"
+                        [ngModel]="storeDetails.city"
+                        class="py-0.5 block rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+                      ></div>
+                    </div>
+                  </div> -->
+          <!-- .......................................................searchbox..END................................................ -->
+
+          <!-- 88888888888888888888888888888888888888888888888888888888888888888888888888888888 -->
+          <div class="sm:col-span-2 sm:col-start-1">
+            <label
+              for="district"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >District</label
+            >
+            <div class="mt-2">
+              <input
+                *ngIf="citySearchFlag === false"
+                [readonly]="true"
+                [ngModel]="storeDetails.district"
+                formControlName="district"
+                type="text"
+                name="district"
+                id="district"
+                autocomplete="address-level2"
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+              />
+              <input
+                *ngIf="citySearchFlag === true"
+                [readonly]="true"
+                [ngModel]="formattedData.district"
+                formControlName="district"
+                type="text"
+                name="district"
+                id="district"
+                autocomplete="address-level2"
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+
+          <div class="sm:col-span-2">
+            <label
+              for="region"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >State / Province</label
+            >
+            <div class="mt-2">
+              <input
+                *ngIf="citySearchFlag === false"
+                [readonly]="true"
+                [ngModel]="storeDetails.state"
+                maxlength="20"
+                formControlName="state"
+                type="text"
+                name="region"
+                id="region"
+                autocomplete="address-level1"
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+              />
+              <input
+                *ngIf="citySearchFlag === true"
+                [readonly]="true"
+                [ngModel]="formattedData.state"
+                maxlength="20"
+                formControlName="state"
+                type="text"
+                name="region"
+                id="region"
+                autocomplete="address-level1"
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+
+          <div class="sm:col-span-2">
+            <label
+              for="country"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >Country</label
+            >
+            <div class="mt-2">
+              <input
+                *ngIf="citySearchFlag === false"
+                [readonly]="true"
+                [ngModel]="storeDetails.country"
+                formControlName="country"
+                type="text"
+                name="country"
+                id="country"
+                autocomplete="country"
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+              />
+              <input
+                *ngIf="citySearchFlag === true"
+                [readonly]="true"
+                [ngModel]="formattedData.country"
+                formControlName="country"
+                type="text"
+                name="country"
+                id="country"
+                autocomplete="country"
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="mt-6 flex items-center justify-end gap-x-6 px-20"
+      *ngIf="iseditable === true"
+    >
+      <button
+        (click)="onStoreUpdateSubmit()"
+        type="submit"
+        class="rounded-md bg-blue-500 px-16 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
+      >
+        Update Store
+      </button>
+    </div>
+  </form>
+</div>

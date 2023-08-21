@@ -1,0 +1,43 @@
+<div class="flex flex-col h-screen mb-6 bg-white-100">
+
+  <div *ngIf="currentCount == 0" class="pt-28 flex-grow flex flex-col items-center h-screen justify-start">
+    <img class="object-contain w-52 h-52 mb-4" alt="" src="/assets/OrderEmpty.gif" />
+    <span class="font-poppins_semi_bold text-lg mb-2">Your Order List Empty!</span>
+    <span class="font-poppins text-center mb-4">Looks like you have not yet purchased from us.. Go ahead and explore our top categories.</span>
+    <button (click)="goToProducts()" class="w-auto flex items-center justify-center rounded-md border border-transparent bg-blue-500 px-4 py-3 text-base font-medium text-white hover:bg-blue-400 focus:outline-none focus:ring-2 focus:blue-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:max-w-md">
+      Shop our products
+    </button>
+  </div>
+
+  <div *ngIf="currentCount != 0" class="h-screen w-full pt-5 mb-8">
+    <div class="mx-auto max-w-5xl px-4 md:px-6 mb-6 py-12">
+      <label class="font-poppins_semi_bold text-2xl text-blue-500">Your Orders</label>
+      <div *ngFor="let product of cartData; let i = index"  [routerLink]="['/orderDetail', product.orderId]"
+       class="mt-8 bg-white hover:border-blue-100 border px-8 backdrop-blur-sm rounded-lg shadow-lg sm:flex">
+        <div class="sm:w-32 justify-center flex align-middle">
+          <img src="{{ product.thumbnail }}" alt="product-image" class="w-32 h-32 object-contain rounded-t-lg sm:rounded-l-lg sm:h-48 sm:w-48" />
+        </div>
+        <div class="p-4 flex flex-col justify-between flex-1">
+          <div>
+            <h2 class="text-sm font-bold text-gray-900">{{ product.productName | titlecase }}</h2>
+            <p class="mt-2 text-sm text-gray-700">{{ product.categoryName }}</p>
+            <p class="text-xs mt-2 text-gray-500">From {{ product.startDate | date }} to {{ product.endDate | date }}</p>
+            <p class="text-xs mt-2 text-gray-500">No of Days: {{ product.noOfDays }}</p>
+            <p class="text-xs mt-2 text-gray-500">Qty: {{ product.productQuantity }}</p>
+          </div>
+          <div class="mt-2 flex justify-between items-center">
+            <p class="text-lg text-gray-500 font-bold">₹{{ product.price | number }} Rs<span class="font-poppins text-xs text-gray-400">/day</span></p>
+            <span>
+            <p *ngIf="product.status == 0" class="text-sm text-green-500">Order Active!</p>
+            <p *ngIf="product.status == 1" class="text-sm font-semibold text-red-500">Order Inactive!</p>
+            <p *ngIf="product.status == 2" class="text-sm font-semibold text-red-500">Order Failed!</p>
+            <p *ngIf="product.status == 3" class="text-sm font-semibold text-green-500">Order Completed!</p>
+            <p class="text-lg text-blue-500 font-bold">₹{{ product.totalPrice | number }} Rs</p>
+
+          </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

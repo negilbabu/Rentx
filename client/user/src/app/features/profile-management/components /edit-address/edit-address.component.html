@@ -1,0 +1,441 @@
+<div id="addAddress" class="bg-white flex items-center pt-10 justify-evenly">
+  <form [formGroup]="AddressDetailsForm">
+    <div>
+      <div class="border-b border-gray-900/10 pb-12">
+        <h2 class="font-poppins_semi_bold text-2xl pt-4 text-blue-500">
+          Edit Address Information
+        </h2>
+        <p class="text-sm leading-6 text-gray-500">
+          Edit address where you can receive your order.
+        </p>
+        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div class="sm:col-span-2 sm:col-start-1">
+            <label
+              for="city"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >Name</label
+            >
+            <div class="mt-2">
+              <input
+                maxlength="20"
+                formControlName="name"
+                type="text"
+                [ngModel]="currentAddress.name"
+                name="name"
+                id="name"
+                autocomplete="address-level2"
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+              />
+              <ng-container
+                *ngIf="
+                  AddressDetailsForm.get('name')?.dirty ||
+                  AddressDetailsForm.get('name')?.touched ||
+                  formSubmitted
+                "
+              >
+                <span
+                  class="text-red-500 text text-sm"
+                  *ngIf="AddressDetailsForm.get('name')?.errors?.['required']"
+                >
+                  Name cannot be left blank.
+                </span>
+
+                <span class="text-red-500 text-sm">
+                  {{AddressDetailsForm.get('name')?.errors?.['pattern'] ? 'Enter valid Name.': 
+                  AddressDetailsForm.get('name')?.errors?.['minlength'] ? 'Enter valid Name.': ''
+                  }}
+                </span>
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="sm:col-span-2">
+            <label
+              for="region"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >House Name</label
+            >
+            <div class="mt-2">
+              <input
+                maxlength="20"
+                formControlName="houseName"
+                type="text"
+                [ngModel]="currentAddress.houseName"
+                name="houseName"
+                id="houseName"
+                autocomplete="address-level1"
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+              />
+              <ng-container
+                *ngIf="
+                  AddressDetailsForm.get('houseName')?.dirty ||
+                  AddressDetailsForm.get('houseName')?.touched ||
+                  formSubmitted
+                "
+              >
+                <span
+                  class="text-red-500 text text-sm"
+                  *ngIf="AddressDetailsForm.get('houseName')?.errors?.['required']"
+                >
+                  House Name cannot be left blank.
+                </span>
+
+                <span class="text-red-500 text-sm">
+                  {{AddressDetailsForm.get('houseName')?.errors?.['pattern'] ? 'Enter valid houseName.': 
+                  AddressDetailsForm.get('houseName')?.errors?.['minlength'] ? 'Enter valid houseName.': ''
+                  }}
+                </span>
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="sm:col-span-2">
+            <label
+              for="postal-code"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >Phone Number</label
+            >
+            <div class="mt-2">
+              <input
+                maxlength="15"
+                formControlName="phone"
+                type="text"
+                [ngModel]="currentAddress.phone"
+                name="postal-code"
+                id="postal-code"
+                autocomplete="postal-code"
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+              />
+              <ng-container
+                *ngIf="
+                  AddressDetailsForm.get('phone')?.dirty ||
+                  AddressDetailsForm.get('phone')?.touched ||
+                  formSubmitted
+                "
+              >
+                <span
+                  class="text-red-500 text text-sm"
+                  *ngIf="AddressDetailsForm.get('phone')?.errors?.['required']"
+                >
+                  Phone cannot be left blank.
+                </span>
+
+                <span class="text-red-500 text-sm">
+                  {{AddressDetailsForm.get('phone')?.errors?.['pattern'] ? 'Enter valid phone': 
+                  AddressDetailsForm.get('phone')?.errors?.['minlength'] ? 'Enter valid phone.': ''
+                  }}
+                </span>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div class="sm:col-span-2 sm:col-start-1">
+            <label
+              for="city"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >City</label
+            >
+            <div class="mt-2">
+              <input
+                maxlength="20"
+                formControlName="city"
+                [ngModel]="currentAddress.city"
+                type="text"
+                name="city"
+                id="city"
+                autocomplete="address-level2"
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+              />
+              <ng-container
+                *ngIf="
+                  AddressDetailsForm.get('city')?.dirty ||
+                  AddressDetailsForm.get('city')?.touched ||
+                  formSubmitted
+                "
+              >
+                <span
+                  class="text-red-500 text text-sm"
+                  *ngIf="AddressDetailsForm.get('city')?.errors?.['required']"
+                >
+                  City cannot be left blank.
+                </span>
+
+                <span class="text-red-500 text-sm">
+                  {{AddressDetailsForm.get('city')?.errors?.['pattern'] ? 'Enter valid City Name.': 
+                  AddressDetailsForm.get('city')?.errors?.['minlength'] ? 'Enter valid City Name.': ''
+                  }}
+                </span>
+              </ng-container>
+            </div>
+          </div>
+
+          <div
+            class="sm:col-span-2 sm:col-start-3"
+            *ngIf="citySearchFlag == false"
+          >
+            <div class="mt-2">
+              <div><br /></div>
+              <button
+                (click)="changeLocation()"
+                type="submit"
+                class="text-blue-500 text-sm"
+              >
+                Change Delivery location?
+              </button>
+            </div>
+          </div>
+        <!-- </div> -->
+<!-- ----------------------------------------------------------------- -->
+
+<div class="sm:col-span-2 sm:col-start-3" [hidden]="!citySearchFlag">
+  <label
+    for="City"
+    class="block text-sm font-medium leading-6 text-gray-900"
+    >Select City</label
+  >
+
+  <div class="mt-2">
+    <div
+
+      formControlName="city"
+      id="search-box"
+      [ngModel]="currentAddress.city"
+      class="py-0.5 block rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+    ></div>
+  </div>
+</div>
+</div>
+<!-- -------------------------------------------------------------------------- -->
+        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div class="sm:col-span-2 sm:col-start-1">
+            <label
+              for="region"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >State / Province</label
+            >
+            <div class="mt-2">
+              <input
+                maxlength="20"
+                formControlName="state"
+                [ngModel]="currentAddress.state"
+                type="text"
+                name="region"
+                id="region"
+                autocomplete="address-level1"
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+              />
+              <ng-container
+                *ngIf="
+                  AddressDetailsForm.get('state')?.dirty ||
+                  AddressDetailsForm.get('state')?.touched ||
+                  formSubmitted
+                "
+              >
+                <span
+                  class="text-red-500 text text-sm"
+                  *ngIf="AddressDetailsForm.get('state')?.errors?.['required']"
+                >
+                  State cannot be left blank.
+                </span>
+
+                <span class="text-red-500 text-sm">
+                  {{AddressDetailsForm.get('state')?.errors?.['pattern'] ? 'Enter valid State.': 
+                AddressDetailsForm.get('state')?.errors?.['minlength'] ? 'Enter valid State.': ''
+                  }}
+                </span>
+              </ng-container>
+            </div>
+          </div>
+
+          <div
+          class="sm:col-span-2 sm:col-start-3"
+          >
+            <label
+              for="postal-code"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >Pin Code</label
+            >
+            <div class="mt-2">
+              <input
+                maxlength="8"
+                formControlName="pinCode"
+                type="text"
+                name="postal-code"
+                [ngModel]="currentAddress.pinCode"
+                id="postal-code"
+                autocomplete="postal-code"
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+              />
+              <ng-container
+                *ngIf="
+                  AddressDetailsForm.get('pinCode')?.dirty ||
+                  AddressDetailsForm.get('pinCode')?.touched ||
+                  formSubmitted
+                "
+              >
+                <span
+                  class="text-red-500 text text-sm"
+                  *ngIf="AddressDetailsForm.get('pinCode')?.errors?.['required']"
+                >
+                  Pin Code cannot be left blank.
+                </span>
+
+                <span class="text-red-500 text-sm">
+                  {{AddressDetailsForm.get('pinCode')?.errors?.['pattern'] ? 'Enter valid Zip Code.': 
+                  AddressDetailsForm.get('pinCode')?.errors?.['minlength'] ? 'Enter valid Zip Code.': ''
+                  }}
+                </span>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div class="sm:col-span-2">
+            <label
+              for="tpe"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >Type</label
+            >
+            <div class="mt-2">
+              <div class="flex items-center">
+                <input
+                  formControlName="type"
+                  type="radio"
+                  [ngModel]="currentAddress.type"
+                  id="type-office"
+                  name="type"
+                  [value]="0"
+                  class="mr-1"
+                />
+                <label for="type-office" class="text-sm leading-5 text-gray-700"
+                  >Home</label
+                >
+              </div>
+              <ng-container
+                *ngIf="
+                  AddressDetailsForm.get('type')?.dirty ||
+                  AddressDetailsForm.get('type')?.touched ||
+                  formSubmitted
+                "
+              >
+                <span
+                  class="text-red-500 text text-sm"
+                  *ngIf="AddressDetailsForm.get('type')?.errors?.['required']"
+                >
+                  Pick atleast one type.
+                </span>
+
+                <span class="text-red-500 text-sm">
+                  {{AddressDetailsForm.get('type')?.errors?.['pattern'] ? 'Enter valid State.': 
+                  AddressDetailsForm.get('type')?.errors?.['minlength'] ? 'Enter valid State.': ''
+                  }}
+                </span>
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="sm:col-span-2">
+            <label
+              for="postal-code"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >&nbsp;</label
+            >
+            <div class="mt-2">
+              <div class="flex items-center">
+                <input
+                  formControlName="type"
+                  type="radio"
+                  [ngModel]="currentAddress.type"
+                  id="type-office"
+                  name="type"
+                  [value]="1"
+                  class="mr-1"
+                />
+                <label for="type-office" class="text-sm leading-5 text-gray-700"
+                  >Office</label
+                >
+              </div>
+              <ng-container
+                *ngIf="
+                  AddressDetailsForm.get('type')?.dirty ||
+                  AddressDetailsForm.get('type')?.touched ||
+                  formSubmitted
+                "
+              >
+                <span
+                  class="text-red-500 text text-sm"
+                  *ngIf="AddressDetailsForm.get('type')?.errors?.['required']"
+                >
+                  Pick atleast one type.
+                </span>
+
+                <span class="text-red-500 text-sm">
+                  {{AddressDetailsForm.get('type')?.errors?.['pattern'] ? 'Enter valid type.': 
+                  AddressDetailsForm.get('type')?.errors?.['minlength'] ? 'Enter valid type.': ''
+                  }}
+                </span>
+              </ng-container>
+            </div>
+          </div>
+          <div class="sm:col-span-2 sm:col">
+            <label
+              for="tpe"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >&nbsp;</label
+            >
+            <div class="mt-2">
+              <div class="flex items-center">
+                <input
+                  formControlName="type"
+                  type="radio"
+                  [ngModel]="currentAddress.type"
+                  id="type-others"
+                  name="type"
+                  [value]="2"
+                  class="mr-1"
+                />
+                <label for="type-others" class="text-sm leading-5 text-gray-700"
+                  >Others</label
+                >
+              </div>
+              <ng-container
+                *ngIf="
+                  AddressDetailsForm.get('type')?.dirty ||
+                  AddressDetailsForm.get('type')?.touched ||
+                  formSubmitted
+                "
+              >
+                <span
+                  class="text-red-500 text text-sm"
+                  *ngIf="AddressDetailsForm.get('type')?.errors?.['required']"
+                >
+                  Pick atleast one type.
+                </span>
+
+                <span class="text-red-500 text-sm">
+                  {{AddressDetailsForm.get('type')?.errors?.['pattern'] ? 'Enter valid City Name.': 
+                  AddressDetailsForm.get('type')?.errors?.['minlength'] ? 'Enter valid City Name.': ''
+                  }}
+                </span>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-6 flex items-center justify-end gap-x-6">
+      <button
+        [disabled]="buttonDisabler"
+        (click)="updateAddress()"
+        type="submit"
+        class="rounded-md bg-blue-500 px-16 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
+      >
+        Update Address
+      </button>
+    </div>
+  </form>
+</div>

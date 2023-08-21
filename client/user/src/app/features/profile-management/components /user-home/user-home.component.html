@@ -1,0 +1,15 @@
+<div class="hidden  lg:block">
+    <app-nav></app-nav>
+  </div>
+
+<app-user-side-bar></app-user-side-bar>
+<main
+[class.lg:pl-72]="paddingValue === 72"
+[class.lg:pl-36]="paddingValue === 36"
+class="px-3 pr-8'"
+>
+<div class="pt-8">
+    <router-outlet></router-outlet>
+</div>
+
+</main>

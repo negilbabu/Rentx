@@ -1,0 +1,86 @@
+::ng-deep .mapboxgl-ctrl-geocoder {
+    min-width: 98%;
+    margin: auto;
+    min-height: 98%;
+    width:98%;
+    line-height: 31px;
+  }
+  @media screen and (min-width: 640px)
+  {
+   ::ng-deep .mapboxgl-ctrl-geocoder{
+     min-width: 98%;
+   margin: auto;
+   min-height: 98%;
+   line-height: 31px;
+   }
+  }
+  ::ng-deep .mapboxgl-ctrl-geocoder--input {
+    height: 33px;
+    padding: 6px 35px;
+  }
+  ::ng-deep .mapboxgl-ctrl-geocoder,
+  .mapboxgl-ctrl-geocoder .suggestions {
+    box-shadow: 0 0 0px 0px rgba(255, 255, 255, 0.1);
+  }
+  ::ng-deep#search-box .mapboxgl-ctrl-geocoder--input:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: none;
+  }
+  @media (max-width: 767px) {
+    ::ng-deep .mapboxgl-ctrl-geocoder svg {
+      padding: 1px;
+    }}
+    @media (max-width: 767px) {
+      ::ng-deep .mapboxgl-ctrl-geocoder--icon-search {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      width: 23px;
+      height: 23px;
+    }}
+    @media (max-width: 767px) {
+      ::ng-deep .mapboxgl-ctrl-geocoder--icon-close {
+      width: 20px;
+      height: 20px;
+      margin-top: -2px;
+      margin-right: 3px;
+    }
+    ::ng-deep.mapboxgl-ctrl-geocoder--input input {
+      padding-left: 8px;
+    }
+    ::ng-deep .mapboxgl-ctrl-geocoder--icon-loading {
+      width: 20px;
+      height: 20px;
+      margin-top:0px;
+      -moz-animation: rotate 0.8s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
+      -webkit-animation: rotate 0.8s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
+      animation: rotate 0.8s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
+      margin-bottom:50px;
+      padding-bottom: 50px;
+    }
+    
+    ::ng-deep#search-box .mapboxgl-ctrl-geocoder--input {
+      height: 20px;
+      padding: 0px;
+      width: 90%;
+    }
+    ::ng-deep#search-box .mapboxgl-ctrl-geocoder--input {
+      padding-left: 1px;
+    }
+  }
+  ::ng-deep#search-box .mapboxgl-ctrl-geocoder--icon-search {
+    margin-right: 16px;
+  }
+  
+  ::ng-deep#search-box .mapboxgl-ctrl-geocoder--input {
+    padding-left: 32px;
+  }
+  /* Basics */
+  .mapboxgl-ctrl-geocoder,
+  .mapboxgl-ctrl-geocoder *,
+  .mapboxgl-ctrl-geocoder *:after,
+  .mapboxgl-ctrl-geocoder *:before {
+    box-sizing: border-box;
+  }
+  

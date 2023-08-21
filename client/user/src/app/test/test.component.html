@@ -1,0 +1,49 @@
+<ngx-ui-loader></ngx-ui-loader>
+<div id="addproduct" class="py-10">
+  
+<form>
+    <div class="sm:col-span-7">
+            <label class="block text-sm mb-4 font-medium leading-6 text-gray-900">
+              Specification
+              <button
+                *ngIf="!iseditable"
+                [disabled]="specificationControls.length == 10 || iseditable"
+                (click)="addSpecification()"
+
+                class="text-gray-900 hover:text-blue-500 disabled:text-gray-600 rounded-full focus:ring-inset focus:ring-blue-500 flex:justify-center align-middle"
+              >
+                <!-- Button SVG code here -->
+              </button>
+            </label>
+          
+            <div formArrayName="specification">
+              <div *ngFor="let item of transformedSpecificationData; let i = index">
+                <div class="flex flex-col sm:flex-row">
+                  <input
+                    [attr.disabled]="iseditable ? true : null"
+                    type="text"
+                    placeholder="Key"
+                    [value]="item.key"
+                    class="block w-full mb-6 mr-6 rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:w-auto md:w-full"
+                  />
+                  <input
+                    [attr.disabled]="iseditable ? true : null"
+                    type="text"
+                    placeholder="Value"
+                    [value]="item.value"
+                    class="block w-full mb-6 mr-6 rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:w-auto md:w-full"
+                  />
+                  <button
+                    *ngIf="!iseditable"
+                    (click)="removeSpecification(i)"
+                    class="text-gray-900 mb-6 hover:text-red-500 flex:justify-center align-middle disabled:text-gray-600"
+                  >
+                    <!-- Button SVG code here -->
+                  </button>
+                </div>
+                <hr class="my-4 border-gray-300 sm:hidden" /> <!-- Add separation only in mobile view -->
+              </div>
+            </div>
+          </div> 
+  </form>
+</div>

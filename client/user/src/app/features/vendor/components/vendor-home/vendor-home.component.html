@@ -1,0 +1,10 @@
+<div>
+  <app-vendor-sidebar></app-vendor-sidebar>
+  <main
+    [class.lg:pl-72]="paddingValue === 72"
+    [class.lg:pl-36]="paddingValue === 36"
+    class="px-3 pr-8'"
+  >
+    <router-outlet></router-outlet>
+  </main>
+</div>
