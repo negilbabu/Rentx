@@ -1,0 +1,2 @@
+# Treat all HTML files in the Angular project as documentation or ignore them for stats
+*.html linguist-detectable=false
