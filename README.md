@@ -1,69 +1,81 @@
-# Rentx
-Rentx is a robust web application that provides an extensive range of wedding decor rentals. The platform is developed using cutting-edge technologies such as Angular, Java Springboot, and MySql, ensuring a seamless and efficient user experience.
+<h1 align="center">
+  Rentx | Wedding Decor Rental Platform 💍✨
+</h1>
 
-# Rentx - Wedding Decor Rentals Web Application
+<p align="center">
+  <strong>An enterprise-grade marketplace for high-end event decor management.</strong>
+</p>
 
-Welcome to the Rentx repository! This project is a web application designed for renting wedding decor items. It provides a platform for vendors to list their products, users to browse and rent those products, and administrators to manage the entire platform.
+<p align="center">
+  <img src="https://img.shields.io/badge/Spring_Boot-3.x-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white" alt="Spring Boot" />
+  <img src="https://img.shields.io/badge/Angular-14+-DD0031?style=for-the-badge&logo=angular&logoColor=white" alt="Angular" />
+  <img src="https://img.shields.io/badge/Security-JWT_%26_OAuth2-black?style=for-the-badge&logo=json-web-tokens" alt="Security" />
+  <img src="https://img.shields.io/badge/DevOps-Jenkins_%7C_GitLab-orange?style=for-the-badge&logo=jenkins" alt="DevOps" />
+</p>
 
-## Project Description
+---
 
-Rentx is a full-stack application built with Angular 14 on the frontend, Spring Boot 2.7 on the backend, and MySQL for the database. It facilitates the rental process for wedding decor items. Users, vendors, and guests have different roles and functionalities:
+## 📖 Project Overview
 
-- **Admin**: Administrators have full control over the site. They can manage users, vendors, products, orders, and perform other administrative tasks.
+**Rentx** is a specialized B2C rental platform designed to manage the unique complexities of wedding decor inventory. Built for scale and reliability, the application handles everything from visual asset management via Firebase to secure, delegated authorization using OAuth2.
 
-- **Vendor**: Vendors can create stores and list products under their stores. They can manage their inventory and update product details.
+## 🛠️ Enterprise Tech Stack
 
-- **User**: Registered users can browse through products listed by various vendors, view product details, check availability, and place rental orders.
+| Layer | Technology | Key Usage |
+| :--- | :--- | :--- |
+| **Frontend** | **Angular** | Reactive state management and modular component architecture. |
+| **Styling** | **Tailwind CSS & Material** | Utility-first styling combined with robust UI components. |
+| **Backend** | **Java / Spring Boot** | Secure, high-performance RESTful API. |
+| **Database** | **MySQL** | ACID-compliant relational data management. |
+| **Storage** | **Firebase** | Cloud-native storage for high-resolution event imagery. |
+| **Security** | **JWT & OAuth2** | Stateless authentication and secure third-party authorization. |
+| **CI/CD** | **Jenkins & GitLab** | Automated pipelines for continuous integration and delivery. |
 
-- **Guest User**: Guests can also explore the products available on the platform, view product details, and check availability. However, they need to register or log in to place rental orders.
+---
 
-The project has undergone thorough security testing, performance testing, and has been checked for bugs to ensure a seamless and secure experience for users.
+## 🛡️ Engineering Excellence 
 
-## Technologies Used
+This project prioritizes maintainability, observability, and security through industry-standard patterns:
 
-- Frontend: Angular 14
-- Backend: Spring Boot 2.7
-- Database: MySQL
+### ⚙️ Backend Architecture
+- **Global Exception Handling:** Implemented a centralized `@ControllerAdvice` to ensure all API responses follow a consistent, predictable structure—even in failure states.
+- **Observability & Logging:** Integrated standardized SLF4J/Logback logging. This ensures that production issues can be traced and debugged efficiently via clear, contextual logs.
+- **Security Headers:** Configured Spring Security to mitigate common vulnerabilities (XSS, CSRF) while managing **JWT** and **OAuth2** flows.
 
-## Installation and Setup
+### 🧪 Quality Assurance
+- **Frontend (Jest):** Unit and integration tests to verify component behavior and state transitions in Angular.
+- **Backend (JUnit 5 & Mockito):** Robust test suite focusing on business-critical logic and data integrity.
 
-1. Clone this repository to your local machine.
-2. Set up the MySQL database and update the database configuration in the backend.
-3. Navigate to the `frontend` directory and run the following commands:
-	npm install
-	ng serve
-4. Navigate to the `backend` directory and run the Spring Boot application.
+### 🚀 DevOps & Deployment
+- **Automated Pipelines:** Fully integrated with **GitLab** and **Jenkins CI/CD** to automate the build-test-deploy lifecycle.
+- **Production Environment:** Deployed on enterprise company servers, simulating a real-world infrastructure environment.
 
-## Usage
+---
 
-- Access the web application through your browser at `http://localhost:4200`.
-- Admins can log in to the admin panel to manage the site.
-- Vendors can log in to their accounts and add stores and products.
-- Users and guest users can explore products, view details, and place orders.
+## 🚀 Installation & Setup
 
-## Folder Structure
+### Prerequisites
+* Java 17+ & Maven
+* Node.js 18+ & Angular CLI
+* MySQL Instance
 
-- `client`: Contains the Angular frontend code.
-- `server`: Contains the Spring Boot backend code.
-- `database`: Provides the database schema and sample data.
+### Backend Setup
+1. Clone the repository and navigate to `/backend`.
+2. Create an `application.properties` file (or use environment variables) to provide your MySQL credentials and Firebase API keys.
+3. Run: `./mvnw clean install` then `./mvnw spring-boot:run`
 
-## API Keys
+### Frontend Setup
+1. Navigate to `/frontend`.
+2. Run: `npm install`
+3. Start development server: `npm start`
+4. Run tests: `npm run test`
 
-- Rentx Requires :
-	Google API key
-	Firebase API key
-	Map Box API key
-- The API Keys in the project will be unaccessable. Use your own API keys wisely.
+---
 
+## 📈 Future Roadmap
+- [ ] **Database Versioning:** Implementation of Liquibase or Flyway for schema migration control.
+- [ ] **API Documentation:** Integration of OpenAPI/Swagger for interactive API exploration.
+- [ ] **Real-time Notifications:** WebSocket integration for booking updates.
 
-## Contributors
-
-- [NEGIL BABU]
-- [ASWIN ABHRAHAM, SHOBITH CHANDRAN, NANDHU SATHISH, MANU RAVI]
-
-## Acknowledgments
-
-We would like to thank the all the individuals and resources for their contributions and inspiration during the development of this project.
-
-Feel free to reach out to us if you have any questions or feedback. Happy renting with Rentx!
-
+## 📄 License
+This project is licensed under the MIT License.
